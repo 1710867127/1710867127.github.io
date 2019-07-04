@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Feather">
 <meta property="og:description" content="端系统运行传输层协议发送方：将应用消息分成一个或多个的Segment,并向下传给网络层接收方：将接收到的Segment组装成消息，并向上交给应用层应用层可以提供多种协议：Internet上的TCP和UDP 网络层 vs. 传输层网络层：提供主机之间的逻辑通信机制传输层：提供应用进程之间的逻辑通信机制  依赖于网络层 位于网络层之上 对网络层服务进行（可能的）增强TCP拥塞控制流量控制连接建立  U">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://graph.baidu.com/thumb/439515879,619809462.jpg">
+<meta property="og:image" content="https://graph.baidu.com/resource/111e9cae05c55682b946301562241650.jpg">
 <meta property="og:image" content="https://graph.baidu.com/resource/111f6d4a33b18df09f02501562240331.jpg">
 <meta property="og:image" content="https://graph.baidu.com/resource/111d8e6df75ed60b40d7901562240376.jpg">
 <meta property="og:image" content="https://graph.baidu.com/resource/11124a856b69f89fa46f401562240457.jpg">
@@ -118,11 +118,11 @@
 <meta property="og:image" content="https://graph.baidu.com/resource/111a13f3560851b728a1501562241110.jpg">
 <meta property="og:image" content="https://graph.baidu.com/resource/111b5fa60171e05d355e401562241135.jpg">
 <meta property="og:image" content="https://graph.baidu.com/resource/111fd76f8f6118c7275ea01562241197.jpg">
-<meta property="og:updated_time" content="2019-07-04T11:59:17.730Z">
+<meta property="og:updated_time" content="2019-07-04T12:01:09.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计网知识点">
 <meta name="twitter:description" content="端系统运行传输层协议发送方：将应用消息分成一个或多个的Segment,并向下传给网络层接收方：将接收到的Segment组装成消息，并向上交给应用层应用层可以提供多种协议：Internet上的TCP和UDP 网络层 vs. 传输层网络层：提供主机之间的逻辑通信机制传输层：提供应用进程之间的逻辑通信机制  依赖于网络层 位于网络层之上 对网络层服务进行（可能的）增强TCP拥塞控制流量控制连接建立  U">
-<meta name="twitter:image" content="https://graph.baidu.com/thumb/439515879,619809462.jpg">
+<meta name="twitter:image" content="https://graph.baidu.com/resource/111e9cae05c55682b946301562241650.jpg">
 
 
 
@@ -402,7 +402,7 @@
 </ol>
 <h4 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a><strong>UDP</strong></h4><p>best-effort</p>
 <h2 id="多路复用和多路分用"><a href="#多路复用和多路分用" class="headerlink" title="多路复用和多路分用"></a><strong>多路复用和多路分用</strong></h2><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a><strong>原因</strong></h3><p>如果某层的一个协议对应直接上层的多个协议/实体，则需要复用/分用</p>
-<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a><strong>举例</strong></h3><p><img src="https://graph.baidu.com/thumb/439515879,619809462.jpg" alt="示例(1)"></p>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a><strong>举例</strong></h3><p><img src="https://graph.baidu.com/resource/111e9cae05c55682b946301562241650.jpg" alt="示例(1)"></p>
 <p>简单来说，<strong>传进来</strong>是多路复用，<strong>传出去</strong>是多路分用。<br>多路复用发生在传输层，多路分用发生在网络层。</p>
 <h3 id="如何工作"><a href="#如何工作" class="headerlink" title="如何工作"></a><strong>如何工作</strong></h3><p>1.主机接收到IP数据报<br>2.主机接收到segment之后，传输层协议提取IP地址和端口号信息，将segment导向相应的secket</p>
 <h5 id="TCP的socket用四元组标识："><a href="#TCP的socket用四元组标识：" class="headerlink" title="TCP的socket用四元组标识："></a><strong>TCP的socket用四元组标识：</strong></h5><h6 id="源ip地址"><a href="#源ip地址" class="headerlink" title="源ip地址"></a>源ip地址</h6><h6 id="源端口号"><a href="#源端口号" class="headerlink" title="源端口号"></a>源端口号</h6><h6 id="目标ip地址"><a href="#目标ip地址" class="headerlink" title="目标ip地址"></a>目标ip地址</h6><h6 id="目标端口号"><a href="#目标端口号" class="headerlink" title="目标端口号"></a>目标端口号</h6><p>接收端利用所有的四个值将segment导向合适的socket</p>
