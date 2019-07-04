@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="传输层,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="端系统运行传输层协议发送方：将应用消息分成一个或多个的Segment,并向下传给网络层接收方：将接收到的Segment组装成消息，并向上交给应用层应用层可以提供多种协议：Internet上的TCP和UDP 网络层 vs. 传输层网络层：提供主机之间的逻辑通信机制传输层：提供应用进程之间的逻辑通信机制  依赖于网络层 位于网络层之上 对网络层服务进行（可能的）增强TCP拥塞控制流量控制连接建立  U">
+<meta name="keywords" content="传输层">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计网知识点">
+<meta property="og:url" content="https://gzfeather.com/2019/07/04/计网/index.html">
+<meta property="og:site_name" content="Feather">
+<meta property="og:description" content="端系统运行传输层协议发送方：将应用消息分成一个或多个的Segment,并向下传给网络层接收方：将接收到的Segment组装成消息，并向上交给应用层应用层可以提供多种协议：Internet上的TCP和UDP 网络层 vs. 传输层网络层：提供主机之间的逻辑通信机制传输层：提供应用进程之间的逻辑通信机制  依赖于网络层 位于网络层之上 对网络层服务进行（可能的）增强TCP拥塞控制流量控制连接建立  U">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/1710867127/1710867127.github.io/blob/master/source/image1.png">
+<meta property="og:image" content=".https://github.com/1710867127/1710867127.github.io/blob/master/source/image2.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1561519007990.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1561545394122.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1561546555079.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1561546708239.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1561547649327.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1561548946003.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1561549209073.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1561549138904.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1561549822412.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1561552993897.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1561553713893.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1561594496335.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1561594534352.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1561643171425.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1561643630658.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1562229455371.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1562230447458.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1562230816331.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1562231262997.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1562231578282.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1562231608980.png">
+<meta property="og:image" content="https://gzfeather.com/2019/07/04/计网/images/1562232588870.png">
+<meta property="og:updated_time" content="2019-07-04T11:31:42.030Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计网知识点">
+<meta name="twitter:description" content="端系统运行传输层协议发送方：将应用消息分成一个或多个的Segment,并向下传给网络层接收方：将接收到的Segment组装成消息，并向上交给应用层应用层可以提供多种协议：Internet上的TCP和UDP 网络层 vs. 传输层网络层：提供主机之间的逻辑通信机制传输层：提供应用进程之间的逻辑通信机制  依赖于网络层 位于网络层之上 对网络层服务进行（可能的）增强TCP拥塞控制流量控制连接建立  U">
+<meta name="twitter:image" content="https://github.com/1710867127/1710867127.github.io/blob/master/source/image1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://gzfeather.com/2019/07/04/计网/">
+
+
+
+
+
+  <title>计网知识点 | Feather</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Feather</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gzfeather.com/2019/07/04/计网/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feather">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Feather">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">计网知识点</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-04T17:38:19+08:00">
+                2019-07-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="端系统运行传输层协议"><a href="#端系统运行传输层协议" class="headerlink" title="端系统运行传输层协议"></a><strong>端系统运行传输层协议</strong></h2><p><strong>发送方</strong>：将应用消息分成一个或多个的Segment,并向下传给网络层<br><strong>接收方</strong>：将接收到的Segment组装成消息，并向上交给应用层<br><strong>应用层可以提供多种协议</strong>：Internet上的TCP和UDP</p>
+<h2 id="网络层-vs-传输层"><a href="#网络层-vs-传输层" class="headerlink" title="网络层 vs. 传输层"></a><strong>网络层 vs. 传输层</strong></h2><p><strong>网络层</strong>：提供<strong>主机</strong>之间的逻辑通信机制<br><strong>传输层</strong>：提供<strong>应用进程</strong>之间的逻辑通信机制</p>
+<ol>
+<li>依赖于网络层</li>
+<li>位于网络层之上</li>
+<li>对网络层服务进行（可能的）增强<h4 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a><strong>TCP</strong></h4><strong>拥塞控制</strong><br><strong>流量控制</strong><br><strong>连接建立</strong></li>
+</ol>
+<h4 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a><strong>UDP</strong></h4><p>best-effort</p>
+<h2 id="多路复用和多路分用"><a href="#多路复用和多路分用" class="headerlink" title="多路复用和多路分用"></a><strong>多路复用和多路分用</strong></h2><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a><strong>原因</strong></h3><p>如果某层的一个协议对应直接上层的多个协议/实体，则需要复用/分用</p>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a><strong>举例</strong></h3><p><img src="https://github.com/1710867127/1710867127.github.io/blob/master/source/image1.png" alt="示例(1)"></p>
+<p>简单来说，<strong>传进来</strong>是多路复用，<strong>传出去</strong>是多路分用。<br>多路复用发生在传输层，多路分用发生在网络层。</p>
+<h3 id="如何工作"><a href="#如何工作" class="headerlink" title="如何工作"></a><strong>如何工作</strong></h3><p>1.主机接收到IP数据报<br>2.主机接收到segment之后，传输层协议提取IP地址和端口号信息，将segment导向相应的secket</p>
+<h5 id="TCP的socket用四元组标识："><a href="#TCP的socket用四元组标识：" class="headerlink" title="TCP的socket用四元组标识："></a><strong>TCP的socket用四元组标识：</strong></h5><h6 id="源ip地址"><a href="#源ip地址" class="headerlink" title="源ip地址"></a>源ip地址</h6><h6 id="源端口号"><a href="#源端口号" class="headerlink" title="源端口号"></a>源端口号</h6><h6 id="目标ip地址"><a href="#目标ip地址" class="headerlink" title="目标ip地址"></a>目标ip地址</h6><h6 id="目标端口号"><a href="#目标端口号" class="headerlink" title="目标端口号"></a>目标端口号</h6><p>接收端利用所有的四个值将segment导向合适的socket</p>
+<p><img src=".https://github.com/1710867127/1710867127.github.io/blob/master/source/image2.png" alt="示例(2)"></p>
+<h2 id="可靠数据传输原理"><a href="#可靠数据传输原理" class="headerlink" title="可靠数据传输原理"></a><strong>可靠数据传输原理</strong></h2><h3 id="rdt1-0"><a href="#rdt1-0" class="headerlink" title="rdt1.0"></a><strong>rdt1.0</strong></h3><p>1.底层信道<strong>完全可靠</strong><br>不会发生错误(bit error)<br>不会丢弃分组<br>2.发送方和接收方的FSM独立</p>
+<p><img src="./images/1561519007990.png" alt="rdt1.0"></p>
+<h3 id="rdt2-0"><a href="#rdt2-0" class="headerlink" title="rdt2.0"></a><strong>rdt2.0</strong></h3><p><strong>产生位错误的信道</strong><br>利用<strong>校验和</strong>来检测位错误</p>
+<h5 id="如何从错误机制中恢复？"><a href="#如何从错误机制中恢复？" class="headerlink" title="如何从错误机制中恢复？"></a><strong>如何从错误机制中恢复？</strong></h5><p>确认机制(Acknowledgements, ACK): 接收方显式地告知发送方分组已正确接收<br>NAK, 接收方显式地告知发送方分组有错误<br>发送方收到NAK后重传</p>
+<p>基于这种重传机制的rdt协议成为<em>ARQ</em>(Automatic Repeat reQuest)协议</p>
+<h5 id="Rdt2-0中引入的新机制"><a href="#Rdt2-0中引入的新机制" class="headerlink" title="Rdt2.0中引入的新机制"></a><strong>Rdt2.0中引入的新机制</strong></h5><p>1.差错检测<br>2.接收方反馈控制信息：ACK/NAK<br>3.重传</p>
+<h5 id="设计"><a href="#设计" class="headerlink" title="设计"></a><strong>设计</strong></h5><p><img src="./images/1561545394122.png" alt="rdt2.0"></p>
+<h3 id="rdt2-1"><a href="#rdt2-1" class="headerlink" title="rdt2.1"></a><strong>rdt2.1</strong></h3><h4 id="rdt2-0的缺陷"><a href="#rdt2-0的缺陷" class="headerlink" title="rdt2.0的缺陷"></a><strong>rdt2.0的缺陷</strong></h4><h5 id="如果ACK-NAK消息发生错误-被破坏-corrupted-会怎么样？"><a href="#如果ACK-NAK消息发生错误-被破坏-corrupted-会怎么样？" class="headerlink" title="如果ACK/NAK消息发生错误/被破坏(corrupted)会怎么样？"></a><strong>如果ACK/NAK消息发生错误/被破坏(corrupted)会怎么样？</strong></h5><p>为ACK/NAK增加校验和，检错并纠错<br>发送方收到被破坏ACK/NAK时不知道接收方发生了什么，添加额外的控制消息<br>如果ACK/NAK坏掉，发送方重传<br>不能简单重传：产生重复分组</p>
+<h5 id="如何解决重复分组问题？"><a href="#如何解决重复分组问题？" class="headerlink" title="如何解决重复分组问题？"></a><strong>如何解决重复分组问题？</strong></h5><p>序列号：发送方给每个分组增加序列号<br>接收方丢弃重复分组</p>
+<h5 id="发送方"><a href="#发送方" class="headerlink" title="发送方"></a><strong>发送方</strong></h5><p>为每个分组增加了序列号<br>两个序列号（0，1）就够用，为什么？——停等协议<br>需校验ACK/NAK消息是否发生错误<br>状态数量翻倍——状态必须记住当前分组的序列号</p>
+<p><img src="./images/1561546555079.png" alt="rdt2.1发送方"></p>
+<h5 id="接收方"><a href="#接收方" class="headerlink" title="接收方"></a><strong>接收方</strong></h5><p>需判断分组是否重复——当前所处状态提供了期望收到分组的序列号<br><strong>注意</strong>：接收方无法知道ACK/NAK是否被发送方正确接收到</p>
+<p><img src="./images/1561546708239.png" alt="rdt2.2接收方"></p>
+<h3 id="rdt2-2"><a href="#rdt2-2" class="headerlink" title="rdt2.2"></a><strong>rdt2.2</strong></h3><p>只需要ACK实现</p>
+<h6 id="如何实现"><a href="#如何实现" class="headerlink" title="如何实现"></a><strong>如何实现</strong></h6><p>1.接收方通过ACK告知最后一个被正确接收的分组<br>2.在ACK消息中<strong>显示地加入被确认分组的序列号</strong></p>
+<p>发送方收到重复ACK后，采取与收到NAK消息相同的动作——重传当前分组</p>
+<p><img src="./images/1561547649327.png" alt="rdt2.2"></p>
+<h3 id="rdt3-0"><a href="#rdt3-0" class="headerlink" title="rdt3.0"></a><strong>rdt3.0</strong></h3><p>如果信道既可能发生错误，也可能丢失分组，怎么办？</p>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>控制发送方等待<strong>合理</strong>的时间<br>如果没有收到ACK，重传<br><strong>如果分组只是延迟而不是丢了</strong><br>1.重传能够重复，序列号机制能够处理<br>2.接收方需在ACK中显示告知所确认的分组<br>需要<strong>定时器</strong></p>
+<p><img src="./images/1561548946003.png" alt="rdt3.0"></p>
+<p><img src="./images/1561549209073.png" alt="rdt3.0示例(1)"></p>
+<p><img src="./images/1561549138904.png" alt="rdt3.0示例(2)"></p>
+<p><img src="./images/1561549822412.png" alt="rdt3.0性能分析"></p>
+<h2 id="TCP-1"><a href="#TCP-1" class="headerlink" title="TCP"></a><strong>TCP</strong></h2><h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><p><strong>点对点</strong><br>一个发送方，一个接收方<br><strong>可靠的、按序的字节流</strong><br><strong>流水线机制</strong><br>TCP拥塞控制和流量控制机制设置窗口尺寸<br><strong>接收方/发送方缓存</strong><br><strong>全双工</strong>：同一连接中能够传输双向数据流<br><strong>面向连接</strong><br>1.通信双方在发送数据之前必须建立连接<br>2.连接状态只在连接的两端中维护，在沿途节点中并不维护状态<br>3.TCP的连接包括：两台主机上的缓存、连接状态变量、socket等<br><strong>流量控制机制</strong></p>
+<h5 id="TCP段结构"><a href="#TCP段结构" class="headerlink" title="TCP段结构"></a>TCP段结构</h5><p><img src="./images/1561552993897.png" alt="TCP段结构 p154"></p>
+<p><strong>序列号</strong>：<br>指的是segment中第一个字节的编号，而不是segment的编号<br>建立TCP连接时，双方随机选择序列号<br><strong>ACKs</strong>：<br>希望接收到的下一个字节的序列号<br><strong>累计确认</strong>：<br>该序列号之前的所有的字节都已经被正确接收到了<br>接收方如何处理乱序到达的segment？<br>TCP规范中没有约定，实现者做出决策</p>
+<p><img src="./images/1561553713893.png" alt="实例"></p>
+<h4 id="TCP可靠数据传输"><a href="#TCP可靠数据传输" class="headerlink" title="TCP可靠数据传输"></a><strong>TCP可靠数据传输</strong></h4><h6 id="如何设置定时器超时的时间"><a href="#如何设置定时器超时的时间" class="headerlink" title="如何设置定时器超时的时间"></a>如何设置定时器超时的时间</h6><p>大于RTT(但RTT是变化的)<br>过短(不必要的重传)<br>过长(对段丢失时间反应慢)</p>
+<h6 id="如何估计RTT"><a href="#如何估计RTT" class="headerlink" title="如何估计RTT"></a>如何估计RTT</h6><p>SampleRTT：测量段发出去到收到ACK的时间<br>SampleRTT的变化：测量多个SampleRTT，求平均值，形成RTT的估计值<br>计算公式：<br><code>EstimatedRTT = (1-α) * EstimatedRTT + α * SampleRTT</code></p>
+<p>定时器超时时间的设置：<br><code>EstimatedRTT + &#39;安全边界&#39;</code><br><code>EstimatedRTT变化较大 -&gt; 较大的边界</code></p>
+<p>测量RTT的变化值：SampleRTT与EstimatedRTT的差值<br><code>DevRTT = (1-β)*DevRTT + β*|SampleRTT - EstimatedRTT|
+ (typically, β = 0.25)</code></p>
+<p> 定时器超时时间设置：<br> <code>TimemoutInterval = EstimatedRTT + 4 * DevRTT</code></p>
+<h3 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a><strong>TCP流量控制</strong></h3><p> 控制发送方的发送速度不要过快，本质上是一种速度匹配机制</p>
+<p> <img src="./images/1561594496335.png" alt="TCP流量控制(1)"></p>
+<p> <img src="./images/1561594534352.png" alt="TCP流量控制(2)"></p>
+<p> 即使是RevWindow = 0，发送方也可以发送一个很小的段</p>
+<h3 id="TCP连接管理"><a href="#TCP连接管理" class="headerlink" title="TCP连接管理"></a><strong>TCP连接管理</strong></h3><h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><h6 id="第一阶段"><a href="#第一阶段" class="headerlink" title="第一阶段"></a>第一阶段</h6><p> 客户主机向服务器发送一个SYN报文段（不携带任何数据，SYN标志位要置1，传递选择的初始的序列号）</p>
+<h6 id="第二阶段"><a href="#第二阶段" class="headerlink" title="第二阶段"></a>第二阶段</h6><p>服务器收到SYN报文段，如果要建立连接答复SYNACK报文段，服务器会分配缓存，选择自己初始的序列号，并告知服务器</p>
+<h6 id="第三阶段"><a href="#第三阶段" class="headerlink" title="第三阶段"></a>第三阶段</h6><p>服务器收到SYNACK报文段，服务器会答复一个ACK报文段，SYN置0，这个报文段可以携带数据</p>
+<p><img src="./images/1561643171425.png" alt="三次握手"></p>
+<h4 id="关闭连接"><a href="#关闭连接" class="headerlink" title="关闭连接"></a>关闭连接</h4><h6 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h6><p>客户机向服务器发送TCP FIN控制报文段</p>
+<h6 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h6><p>服务器收到FIN，回复ACK，关闭连接，发送FIN</p>
+<h6 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h6><p>客户机收到FIN，回复ACK<br>进入“等待”，如果收到FIN会重新发送ACK</p>
+<h6 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h6><p>服务器收到ACK，连接关闭</p>
+<p><img src="./images/1561643630658.png" alt="TCP连接关闭"></p>
+<h3 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h3><h6 id="成因"><a href="#成因" class="headerlink" title="成因"></a>成因</h6><p>太多的数据发送方发送了太多数据</p>
+<h6 id="拥塞代价："><a href="#拥塞代价：" class="headerlink" title="拥塞代价："></a>拥塞代价：</h6><p>分组时延太大<br>当分组被drop时，任何处于该分组的“上游”传输能力全都被浪费掉</p>
+<h6 id="拥塞控制的方法"><a href="#拥塞控制的方法" class="headerlink" title="拥塞控制的方法"></a>拥塞控制的方法</h6><p><strong>端到端的拥塞控制</strong><br>1.网络层不需要显式的提供支持<br>2.端系统通过观察loss，delay等网络行为判断是否发送拥塞<br>TCP采用这种方法<br><strong>网络辅助的拥塞控制</strong><br>1.路由器向发送方显式地反馈网络拥塞信息<br>2.简单的拥塞指示(1bit):SNA, DEbit, TCP/IP ECN, ATM<br>3.只是发送方应该采取何种速率</p>
+<h6 id="案例-ATM-ABR拥塞控制"><a href="#案例-ATM-ABR拥塞控制" class="headerlink" title="案例 ATM ABR拥塞控制"></a>案例 ATM ABR拥塞控制</h6><p><strong>ABR</strong>： available bit rate<br>“弹性服务”<br>如果发送方路径<em>underloaded</em>，使用可用带宽<br>如果发送方路径拥塞，将发送速率降低到最低保障速率<br><strong>RM(resource management) cells</strong>： 资源管理cell<br>发送方发送<br>交换机设置RM cell位(网络辅助)<br>NI bit rate：不许增长<br>CI rate：拥塞指示<br>RM cell： 由接收方反馈给发送方</p>
+<p><img src="./images/1562229455371.png" alt="ATM ABR案例"></p>
+<h4 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h4><h5 id="如何来控制发送速率"><a href="#如何来控制发送速率" class="headerlink" title="如何来控制发送速率"></a>如何来控制发送速率</h5><p><code>LastByteSent - LastByteAcked &lt;= Congwin</code><br><code>rate ≈ Congwin/RTT (Bytes/sec)</code><br><strong>CongWin</strong><br>动态调整以改变发送速率<br>反应所感知到的网络拥塞</p>
+<h5 id="如何感知网络拥塞"><a href="#如何感知网络拥塞" class="headerlink" title="如何感知网络拥塞"></a>如何感知网络拥塞</h5><p><code>LOSS事件 = timeout或3个重复的ACK</code><br>发生loss时间，发送方降低速率</p>
+<h5 id="如何合理的调整发送速率"><a href="#如何合理的调整发送速率" class="headerlink" title="如何合理的调整发送速率"></a>如何合理的调整发送速率</h5><h6 id="加性增—乘性减：AIMD"><a href="#加性增—乘性减：AIMD" class="headerlink" title="加性增—乘性减：AIMD"></a>加性增—乘性减：AIMD</h6><p><strong>原理</strong>：逐渐增加发送速率，谨慎探测可用带宽，直到发生loss<br><strong>方法</strong>：AIMD<br>Additive Increase:每个RTT将CongWin增大一个MSS——拥塞避免<br>Multiplicative Decrease:发生loss后将CongWin减半</p>
+<p><img src="./images/1562230447458.png" alt="锯齿形为探测可用带宽"></p>
+<h6 id="慢启动：SS"><a href="#慢启动：SS" class="headerlink" title="慢启动：SS"></a>慢启动：SS</h6><p>TCP连接建立时，CongWin=1<br>例：MSS = 500 byte, RTT = 200 msec. 初始速率 = 20k bps<br>可用带宽可能远远高于初始速率，所以我们希望可以进行<strong>指数增长</strong><br><strong>原理</strong>：当连接开始时，指数性增长</p>
+<p><img src="./images/1562230816331.png" alt="指数性增长"></p>
+<h6 id="何时应该将指数型增长切换为线性增长"><a href="#何时应该将指数型增长切换为线性增长" class="headerlink" title="何时应该将指数型增长切换为线性增长"></a>何时应该将指数型增长切换为线性增长</h6><p><strong>当CongWin达到Loss事件当前值1/2时。</strong><br><strong>实现方法</strong><br>变量：Threshold<br>Loss事件发生时，Threshold被设为Loss事件前CongWin值的1/2.</p>
+<p><img src="./images/1562231262997.png" alt="transmission round"></p>
+<h6 id="LOSS事件的处理"><a href="#LOSS事件的处理" class="headerlink" title="LOSS事件的处理"></a>LOSS事件的处理</h6><p><strong>三个重复的ACK</strong><br>CongWin切到一半，然后线性增长<br><strong>Timeout事件</strong><br>CongWin直接设为1个MSS，然后指数增长，达到threshold后再线性增长<br><strong>原因</strong><br>3个重复的ACK表示网络还能够传输一些segments，timeout事件表明拥塞更为严重</p>
+<h6 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h6><p><img src="./images/1562231578282.png" alt="conclusion"></p>
+<p><img src="./images/1562231608980.png" alt="conclusion"></p>
+<h5 id="TCP拥塞控制算法"><a href="#TCP拥塞控制算法" class="headerlink" title="TCP拥塞控制算法"></a>TCP拥塞控制算法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Threshold = ? /*一个合适的值*/</span><br><span class="line">CongWin = 1 MSS</span><br><span class="line">/* show start or exponential increase */</span><br><span class="line">While(1) &#123;</span><br><span class="line">	While (No Packet Loss and CongWin &lt; Threshold) &#123;</span><br><span class="line">		send CongWin TCP segments</span><br><span class="line">		for each ACK incease CongWin by 1</span><br><span class="line">	&#125;</span><br><span class="line">	/* congestion avoidance or linear increase */</span><br><span class="line">	While (No Packet Loss) &#123;</span><br><span class="line">		send CongWin TCP segments</span><br><span class="line">		for CongWin ACKs, increase CongWin by 1</span><br><span class="line">	&#125;</span><br><span class="line">	Threshold = CongWin/2</span><br><span class="line">	If (3 Dup ACKs) CongWin = Threshold</span><br><span class="line">	If (timeout) CongWin = 1</span><br><span class="line">&#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<p><strong>例题</strong></p>
+<p><img src="./images/1562232588870.png" alt="例题"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/传输层/" rel="tag"># 传输层</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/19/STL初步用法/" rel="next" title="STL初步用法">
+                <i class="fa fa-chevron-left"></i> STL初步用法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/header.jpg" alt="Feather">
+            
+              <p class="site-author-name" itemprop="name">Feather</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zgz1710867127@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.xiekeyi98.com/" title="蟹老板" target="_blank">蟹老板</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://bololopie.com/" title="菠萝萝" target="_blank">菠萝萝</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.rumosky.com/" title="如墨の星空" target="_blank">如墨の星空</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#端系统运行传输层协议"><span class="nav-number">1.</span> <span class="nav-text">端系统运行传输层协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络层-vs-传输层"><span class="nav-number">2.</span> <span class="nav-text">网络层 vs. 传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP"><span class="nav-number">2.0.1.</span> <span class="nav-text">TCP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UDP"><span class="nav-number">2.0.2.</span> <span class="nav-text">UDP</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#多路复用和多路分用"><span class="nav-number">3.</span> <span class="nav-text">多路复用和多路分用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原因"><span class="nav-number">3.1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#举例"><span class="nav-number">3.2.</span> <span class="nav-text">举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何工作"><span class="nav-number">3.3.</span> <span class="nav-text">如何工作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP的socket用四元组标识："><span class="nav-number">3.3.0.1.</span> <span class="nav-text">TCP的socket用四元组标识：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#源ip地址"><span class="nav-number">3.3.0.1.1.</span> <span class="nav-text">源ip地址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#源端口号"><span class="nav-number">3.3.0.1.2.</span> <span class="nav-text">源端口号</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#目标ip地址"><span class="nav-number">3.3.0.1.3.</span> <span class="nav-text">目标ip地址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#目标端口号"><span class="nav-number">3.3.0.1.4.</span> <span class="nav-text">目标端口号</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可靠数据传输原理"><span class="nav-number">4.</span> <span class="nav-text">可靠数据传输原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rdt1-0"><span class="nav-number">4.1.</span> <span class="nav-text">rdt1.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rdt2-0"><span class="nav-number">4.2.</span> <span class="nav-text">rdt2.0</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如何从错误机制中恢复？"><span class="nav-number">4.2.0.1.</span> <span class="nav-text">如何从错误机制中恢复？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Rdt2-0中引入的新机制"><span class="nav-number">4.2.0.2.</span> <span class="nav-text">Rdt2.0中引入的新机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设计"><span class="nav-number">4.2.0.3.</span> <span class="nav-text">设计</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rdt2-1"><span class="nav-number">4.3.</span> <span class="nav-text">rdt2.1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#rdt2-0的缺陷"><span class="nav-number">4.3.1.</span> <span class="nav-text">rdt2.0的缺陷</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如果ACK-NAK消息发生错误-被破坏-corrupted-会怎么样？"><span class="nav-number">4.3.1.1.</span> <span class="nav-text">如果ACK/NAK消息发生错误/被破坏(corrupted)会怎么样？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何解决重复分组问题？"><span class="nav-number">4.3.1.2.</span> <span class="nav-text">如何解决重复分组问题？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#发送方"><span class="nav-number">4.3.1.3.</span> <span class="nav-text">发送方</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接收方"><span class="nav-number">4.3.1.4.</span> <span class="nav-text">接收方</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rdt2-2"><span class="nav-number">4.4.</span> <span class="nav-text">rdt2.2</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#如何实现"><span class="nav-number">4.4.0.0.1.</span> <span class="nav-text">如何实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rdt3-0"><span class="nav-number">4.5.</span> <span class="nav-text">rdt3.0</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法"><span class="nav-number">4.5.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-1"><span class="nav-number">5.</span> <span class="nav-text">TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点"><span class="nav-number">5.0.1.</span> <span class="nav-text">特点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP段结构"><span class="nav-number">5.0.1.1.</span> <span class="nav-text">TCP段结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP可靠数据传输"><span class="nav-number">5.0.2.</span> <span class="nav-text">TCP可靠数据传输</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#如何设置定时器超时的时间"><span class="nav-number">5.0.2.0.1.</span> <span class="nav-text">如何设置定时器超时的时间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#如何估计RTT"><span class="nav-number">5.0.2.0.2.</span> <span class="nav-text">如何估计RTT</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP流量控制"><span class="nav-number">5.1.</span> <span class="nav-text">TCP流量控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP连接管理"><span class="nav-number">5.2.</span> <span class="nav-text">TCP连接管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#三次握手"><span class="nav-number">5.2.1.</span> <span class="nav-text">三次握手</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#第一阶段"><span class="nav-number">5.2.1.0.1.</span> <span class="nav-text">第一阶段</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#第二阶段"><span class="nav-number">5.2.1.0.2.</span> <span class="nav-text">第二阶段</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#第三阶段"><span class="nav-number">5.2.1.0.3.</span> <span class="nav-text">第三阶段</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭连接"><span class="nav-number">5.2.2.</span> <span class="nav-text">关闭连接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#第一步"><span class="nav-number">5.2.2.0.1.</span> <span class="nav-text">第一步</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#第二步"><span class="nav-number">5.2.2.0.2.</span> <span class="nav-text">第二步</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#第三步"><span class="nav-number">5.2.2.0.3.</span> <span class="nav-text">第三步</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#第四步"><span class="nav-number">5.2.2.0.4.</span> <span class="nav-text">第四步</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拥塞控制"><span class="nav-number">5.3.</span> <span class="nav-text">拥塞控制</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#成因"><span class="nav-number">5.3.0.0.1.</span> <span class="nav-text">成因</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#拥塞代价："><span class="nav-number">5.3.0.0.2.</span> <span class="nav-text">拥塞代价：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#拥塞控制的方法"><span class="nav-number">5.3.0.0.3.</span> <span class="nav-text">拥塞控制的方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#案例-ATM-ABR拥塞控制"><span class="nav-number">5.3.0.0.4.</span> <span class="nav-text">案例 ATM ABR拥塞控制</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP拥塞控制"><span class="nav-number">5.3.1.</span> <span class="nav-text">TCP拥塞控制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如何来控制发送速率"><span class="nav-number">5.3.1.1.</span> <span class="nav-text">如何来控制发送速率</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何感知网络拥塞"><span class="nav-number">5.3.1.2.</span> <span class="nav-text">如何感知网络拥塞</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何合理的调整发送速率"><span class="nav-number">5.3.1.3.</span> <span class="nav-text">如何合理的调整发送速率</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#加性增—乘性减：AIMD"><span class="nav-number">5.3.1.3.1.</span> <span class="nav-text">加性增—乘性减：AIMD</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#慢启动：SS"><span class="nav-number">5.3.1.3.2.</span> <span class="nav-text">慢启动：SS</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#何时应该将指数型增长切换为线性增长"><span class="nav-number">5.3.1.3.3.</span> <span class="nav-text">何时应该将指数型增长切换为线性增长</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#LOSS事件的处理"><span class="nav-number">5.3.1.3.4.</span> <span class="nav-text">LOSS事件的处理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#总结"><span class="nav-number">5.3.1.3.5.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP拥塞控制算法"><span class="nav-number">5.3.1.4.</span> <span class="nav-text">TCP拥塞控制算法</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feather</span>
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">4.2k</span>
+  
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共4.2k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
