@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="端系统运行传输层协议发送方：将应用消息分成一个或多个的Segment,并向下传给网络层接收方：将接收到的Segment组装成消息，并向上交给应用层应用层可以提供多种协议：Internet上的TCP和UDP 网络层 vs. 传输层网络层：提供主机之间的逻辑通信机制传输层：提供应用进程之间的逻辑通信机制  依赖于网络层 位于网络层之上 对网络层服务进行（可能的）增强TCP拥塞控制流量控制连接建立  U">
+<meta name="description" content="端系统运行传输层协议发送方：将应用消息分成一个或多个的Segment,并向下传给网络层接收方：将接收到的Segment组装成消息，并向上交给应用层应用层可以提供多种协议：Internet上的TCP和UDP 网络层 vs. 传输层网络层：提供主机之间的逻辑通信机制传输层：提供应用进程之间的逻辑通信机制1.依赖于网络层2.位于网络层之上3.对网络层服务进行（可能的）增强 TCP 拥塞控制 流量控制 连">
 <meta name="keywords" content="传输层, 网络层">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计网知识点">
 <meta property="og:url" content="https://gzfeather.com/2019/07/04/计网/index.html">
 <meta property="og:site_name" content="Feather">
-<meta property="og:description" content="端系统运行传输层协议发送方：将应用消息分成一个或多个的Segment,并向下传给网络层接收方：将接收到的Segment组装成消息，并向上交给应用层应用层可以提供多种协议：Internet上的TCP和UDP 网络层 vs. 传输层网络层：提供主机之间的逻辑通信机制传输层：提供应用进程之间的逻辑通信机制  依赖于网络层 位于网络层之上 对网络层服务进行（可能的）增强TCP拥塞控制流量控制连接建立  U">
+<meta property="og:description" content="端系统运行传输层协议发送方：将应用消息分成一个或多个的Segment,并向下传给网络层接收方：将接收到的Segment组装成消息，并向上交给应用层应用层可以提供多种协议：Internet上的TCP和UDP 网络层 vs. 传输层网络层：提供主机之间的逻辑通信机制传输层：提供应用进程之间的逻辑通信机制1.依赖于网络层2.位于网络层之上3.对网络层服务进行（可能的）增强 TCP 拥塞控制 流量控制 连">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/07/ZBShUf.png">
 <meta property="og:image" content="https://github.com/1710867127/sourcefile/blob/master/images/image2.png?raw=true">
@@ -125,10 +125,10 @@
 <meta property="og:image" content="https://latex.codecogs.com/gif.latex?D_{v}&space;=[D_{v}(y):\;y\subseteq&space;N]">
 <meta property="og:image" content="https://latex.codecogs.com/gif.latex?D_{x}(y)\leftarrow&space;min(c(x,y)+D_{v}(y))\;\texttt{for&space;each&space;node}\;y\in&space;N">
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/07/ZBgcNT.png">
-<meta property="og:updated_time" content="2019-07-07T10:47:42.353Z">
+<meta property="og:updated_time" content="2019-07-07T12:34:21.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计网知识点">
-<meta name="twitter:description" content="端系统运行传输层协议发送方：将应用消息分成一个或多个的Segment,并向下传给网络层接收方：将接收到的Segment组装成消息，并向上交给应用层应用层可以提供多种协议：Internet上的TCP和UDP 网络层 vs. 传输层网络层：提供主机之间的逻辑通信机制传输层：提供应用进程之间的逻辑通信机制  依赖于网络层 位于网络层之上 对网络层服务进行（可能的）增强TCP拥塞控制流量控制连接建立  U">
+<meta name="twitter:description" content="端系统运行传输层协议发送方：将应用消息分成一个或多个的Segment,并向下传给网络层接收方：将接收到的Segment组装成消息，并向上交给应用层应用层可以提供多种协议：Internet上的TCP和UDP 网络层 vs. 传输层网络层：提供主机之间的逻辑通信机制传输层：提供应用进程之间的逻辑通信机制1.依赖于网络层2.位于网络层之上3.对网络层服务进行（可能的）增强 TCP 拥塞控制 流量控制 连">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/07/07/ZBShUf.png">
 
 
@@ -401,12 +401,8 @@
 
       
         <h2 id="端系统运行传输层协议"><a href="#端系统运行传输层协议" class="headerlink" title="端系统运行传输层协议"></a><strong>端系统运行传输层协议</strong></h2><p><strong>发送方</strong>：将应用消息分成一个或多个的Segment,并向下传给网络层<br><strong>接收方</strong>：将接收到的Segment组装成消息，并向上交给应用层<br><strong>应用层可以提供多种协议</strong>：Internet上的TCP和UDP</p>
-<h2 id="网络层-vs-传输层"><a href="#网络层-vs-传输层" class="headerlink" title="网络层 vs. 传输层"></a><strong>网络层 vs. 传输层</strong></h2><p><strong>网络层</strong>：提供<strong>主机</strong>之间的逻辑通信机制<br><strong>传输层</strong>：提供<strong>应用进程</strong>之间的逻辑通信机制</p>
-<ol>
-<li>依赖于网络层</li>
-<li>位于网络层之上</li>
-<li>对网络层服务进行（可能的）增强<h4 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a><strong>TCP</strong></h4><strong>拥塞控制</strong><br><strong>流量控制</strong><br><strong>连接建立</strong></li>
-</ol>
+<h2 id="网络层-vs-传输层"><a href="#网络层-vs-传输层" class="headerlink" title="网络层 vs. 传输层"></a><strong>网络层 vs. 传输层</strong></h2><p><strong>网络层</strong>：提供<strong>主机</strong>之间的逻辑通信机制<br><strong>传输层</strong>：提供<strong>应用进程</strong>之间的逻辑通信机制<br>1.依赖于网络层<br>2.位于网络层之上<br>3.对网络层服务进行（可能的）增强</p>
+<h4 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a><strong>TCP</strong></h4><p> <strong>拥塞控制</strong><br> <strong>流量控制</strong><br> <strong>连接建立</strong></p>
 <h4 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a><strong>UDP</strong></h4><p>best-effort</p>
 <h2 id="多路复用和多路分用"><a href="#多路复用和多路分用" class="headerlink" title="多路复用和多路分用"></a><strong>多路复用和多路分用</strong></h2><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a><strong>原因</strong></h3><p>如果某层的一个协议对应直接上层的多个协议/实体，则需要复用/分用</p>
 <h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a><strong>举例</strong></h3><p><img src="https://s2.ax1x.com/2019/07/07/ZBShUf.png" alt="示例(1)"></p>
