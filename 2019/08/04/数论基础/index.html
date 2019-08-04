@@ -96,7 +96,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/04/eyGGtK.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/04/eyDAWn.png">
-<meta property="og:updated_time" content="2019-08-04T06:11:46.596Z">
+<meta property="og:updated_time" content="2019-08-04T06:13:01.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数论基础">
 <meta name="twitter:description" content="作为一名jber选手，数论其实是很重要的一个部分，很多的区域赛都比较喜欢出一些奇奇怪怪的数论题目，但是本菜鸡感觉数论对我来说实在是太难了，一个知识点看好久才看得懂。这里就写一点数论基础知识，方便以后看叭。 素数如何判断一个数是不是素数12345678bool prime(int x)&amp;#123;	if (x &amp;lt;= 1) return false;	for (int i = 2; i &amp;lt;">
@@ -405,7 +405,7 @@
 <li>从而可知<script type="math/tex">gcd(b,r)=c</script>,继而<script type="math/tex">gcd(a,b)=gcd(b,r)</script>,得证。</li>
 </ol>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//gcd(a,b) = gcd(b, a mod b)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span>   <span class="comment">//最大公约数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)  <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> gcd(b,a%b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">         </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span>  <span class="comment">//最小公倍数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a/gcd(a,b)*b;    <span class="comment">//防止溢出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>首先当我们需要考虑当<script type="math/tex">b=0</script>时，为何要返回a呢？因为只有当<script type="math/tex">a>b</script>时，算法才算正式开始进行运算，这是为什么呢？我们举个简单的栗子，当<script type="math/tex">a=12,b=16</script>时，我们在第二轮的时候惊奇的发现他递归的是<script type="math/tex">gcd(16,12)</script>，这其实也算是一种维护的过程。当我们发现<script type="math/tex">b=0</script>时，也就是说上一轮的<script type="math/tex">a%b=0</script>的a可以完全整除b，此处的a则是上一轮b提供的，所以将b返回即可。</p>
+<p>首先当我们需要考虑当<script type="math/tex">b=0</script>时，为何要返回a呢？因为只有当<script type="math/tex">a>b</script>时，算法才算正式开始进行运算，这是为什么呢？我们举个简单的栗子，当<script type="math/tex">a=12,b=16</script>时，我们在第二轮的时候惊奇的发现他递归的是<script type="math/tex">gcd(16,12)</script>，这其实也算是一种维护的过程。当我们发现<script type="math/tex">b=0</script>时，也就是说上一轮的<script type="math/tex">a\;mod\;b=0</script>的a可以完全整除b，此处的a则是上一轮b提供的，所以将b返回即可。</p>
 
       
     </div>
