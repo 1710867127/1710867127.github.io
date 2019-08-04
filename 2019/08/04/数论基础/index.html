@@ -96,7 +96,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/04/eyGGtK.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/04/eyDAWn.png">
-<meta property="og:updated_time" content="2019-08-04T05:54:07.980Z">
+<meta property="og:updated_time" content="2019-08-04T05:55:14.477Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数论基础">
 <meta name="twitter:description" content="作为一名jber选手，数论其实是很重要的一个部分，很多的区域赛都比较喜欢出一些奇奇怪怪的数论题目，但是本菜鸡感觉数论对我来说实在是太难了，一个知识点看好久才看得懂。这里就写一点数论基础知识，方便以后看叭。 素数如何判断一个数是不是素数12345678bool prime(int x)&amp;#123;	if (x &amp;lt;= 1) return false;	for (int i = 2; i &amp;lt;">
@@ -399,7 +399,7 @@
 <h3 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h3><p>设<script type="math/tex">a>b</script></p>
 <ol>
 <li>令<script type="math/tex">c=gcd(a,b)</script>, 则设<script type="math/tex">a=mc</script>, <script type="math/tex">b=nc</script>;</li>
-<li>设<script type="math/tex">r=a%b</script>,可知<script type="math/tex">r=a-kb=mc-knc=(m-kn)c</script></li>
+<li>设<script type="math/tex">r=a\;mod\;b</script>,可知<script type="math/tex">r=a-kb=mc-knc=(m-kn)c</script></li>
 <li>根据第二步结果可知<script type="math/tex">c</script>也是<script type="math/tex">r</script>的因数</li>
 <li>由前面我们可知，<script type="math/tex">m-kn</script>与<script type="math/tex">n</script>互素(否则，可以设<script type="math/tex">m-kn=xd,n=yd,(d>1)</script>,则<script type="math/tex">m=kn+xd=kyd+xd=(ky+x)d</script>,则<script type="math/tex">a=mc=(ky+x)dc</script>,<script type="math/tex">b=nc=ycd</script>,所以<script type="math/tex">gcd(a,b)>=cd</script>，而非<script type="math/tex">c</script>，与前面结论矛盾)</li>
 <li>从而可知<script type="math/tex">gcd(b,r)=c</script>,继而<script type="math/tex">gcd(a,b)=gcd(b,r)</script>,得证。</li>
