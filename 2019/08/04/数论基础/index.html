@@ -96,7 +96,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/04/eyGGtK.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/04/eyDAWn.png">
-<meta property="og:updated_time" content="2019-08-04T06:37:48.476Z">
+<meta property="og:updated_time" content="2019-08-04T06:47:43.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数论基础">
 <meta name="twitter:description" content="作为一名jber选手，数论其实是很重要的一个部分，很多的区域赛都比较喜欢出一些奇奇怪怪的数论题目，但是本菜鸡感觉数论对我来说实在是太难了，一个知识点看好久才看得懂。这里就写一点数论基础知识，方便以后看叭。 素数如何判断一个数是不是素数12345678bool prime(int x)&amp;#123;	if (x &amp;lt;= 1) return false;	for (int i = 2; i &amp;lt;">
@@ -409,13 +409,10 @@
 <h2 id="拓展欧几里得"><a href="#拓展欧几里得" class="headerlink" title="拓展欧几里得"></a>拓展欧几里得</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><script type="math/tex; mode=display">ax+by=gcd(a,b)=d$$，在已知$$a,b$$的情况下求解出一组$$x,y</script><h3 id="证明-1"><a href="#证明-1" class="headerlink" title="证明"></a>证明</h3><p>设<script type="math/tex">a>b</script></p>
 <ol>
 <li>显然当<script type="math/tex">b=0</script>，<script type="math/tex">gcd(a,b)=a</script>。此时<script type="math/tex">x=1,y=0</script>;</li>
-<li><script type="math/tex; mode=display">a>b>0$$时
-设$$ax_{1}+by_{1}=gcd(a,b)$$;
-$$bx_{2}+(a\;mod\;b)y_{2}=gcd(b,a\;mod\;b)$$;
-根据朴素的欧几里得原理有$$gcd(a,b) = gcd(b,a\;mod\;b)$$;
-则:$$ax_{1}+by_{1}=bx_{2}+(a\;mod\;b)y_{2}$$;
-即$$ax_{1}+by_{1}=bx_{2}+(a-\left \lfloor a/b \right \rfloor* b)y2=ay_{2}+bx_{2}-\left \lfloor a/b \right \rfloor* by_{2}</script>(说明：<script type="math/tex">a-\left \lfloor a/b \right \rfloor* b</script>即为mod运算，<script type="math/tex">\left \lfloor a/b \right \rfloor</script>代表小于<script type="math/tex">a/b</script>的最大整数)<br>也就是<script type="math/tex">ax_{1}+by_{1}==ay_{2}+b(x_{2}-\left \lfloor a/b \right \rfloor* y_{2})
-根据恒等定理得：</script>x_{1}=y_{2}<script type="math/tex">，</script>y_{1}=x_{2}-\left \lfloor a/b \right \rfloor* y_{2}$$;</li>
+<li>当<script type="math/tex">a>b>0时,设ax_{1}+by_{1}=gcd(a,b);
+bx_{2}+(a\;mod\;b)y_{2}=gcd(b,a\;mod\;b);</script></li>
+<li>根据朴素的欧几里得原理有<script type="math/tex">gcd(a,b) = gcd(b,a\;mod\;b)</script>;<br>则:<script type="math/tex">ax_{1}+by_{1}=bx_{2}+(a\;mod\;b)y_{2}</script>;<br>即<script type="math/tex">ax_{1}+by_{1}=bx_{2}+(a-\left \lfloor a/b \right \rfloor* b)y2=ay_{2}+bx_{2}-\left \lfloor a/b \right \rfloor* by_{2}</script><br>(说明：<script type="math/tex">a-\left \lfloor a/b \right \rfloor* b</script>即为mod运算，<script type="math/tex">\left \lfloor a/b \right \rfloor</script>代表小于<script type="math/tex">a/b</script>的最大整数)<br>也就是<script type="math/tex">ax_{1}+by_{1}==ay_{2}+b(x_{2}-\left \lfloor a/b \right \rfloor* y_{2})</script></li>
+<li>根据恒等定理得：<script type="math/tex">x_{1}=y_{2}</script>,<script type="math/tex">y_{1}=x_{2}-\left \lfloor a/b \right \rfloor* y_{2}</script>;</li>
 </ol>
 
       
