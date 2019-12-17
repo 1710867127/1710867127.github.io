@@ -96,7 +96,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QII9c4.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QIoFxg.png">
-<meta property="og:updated_time" content="2019-12-17T12:35:30.718Z">
+<meta property="og:updated_time" content="2019-12-17T12:42:23.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="绪论什么是编译 编译程序的结构 词法分析器：又称扫描器，输入源程序，进行词法分析，输出单词符号 语法分析器：又称分析器，对单词符号进行语法分析（根据语法规则进行推导或归约），识别出各类语法单位，最终判断输入串是否构成语法上正确的”程序” 语义分析与中间代码产生器：按照语义规则对语法分析器归约出的语法单位进行语义分析并把它们翻译成一定形式的中间代码 优化器：对中间代码进行优化处理 目标代码生成器：把">
@@ -456,13 +456,21 @@
 </thead>
 <tbody>
 <tr>
-<td>4、</td>
+<td></td>
 </tr>
 <tr>
 <td>5、最左推导：任何一步 $\alpha \rightarrow \beta $ 都是对 $\alpha$ 中的最左非终结符进行替换的。<br><br>最右推导：同理<br><br>语法分析树：用一张图来表示一个句型的推导，这种表示称为<strong>语法分析树</strong>。</td>
 </tr>
 <tr>
-<td>6、乔姆斯基把文法分为四种<br>0型文法也叫<strong>短语文法</strong>，任何0型文法都是递归可枚举的；反之，递归可枚举集必定是一个0型语言。<br><br>1型文法也叫<strong>上下有关文法</strong>。对非终结符替换时务必考虑上下文，并且一般不允许替换成空串 $\varepsilon$ 。G的任何产生式 $\alpha \rightarrow \beta $ 均满足 $</td>
+<td>6、乔姆斯基把文法分为四种<br>0型文法也叫<strong>短语文法</strong>，任何0型文法都是递归可枚举的；反之，递归可枚举集必定是一个0型语言。<br><br>1型文法也叫<strong>上下有关文法</strong>。对非终结符替换时务必考虑上下文，并且一般不允许替换成空串 $\varepsilon$ 。G的任何产生式 $\alpha \rightarrow \beta $ 均满足 $ \</td>
+<td>\alpha \</td>
+<td>\leq \</td>
+<td>\beta \</td>
+<td>$ （其中 $\</td>
+<td>\alpha \</td>
+<td>$ 和 $\</td>
+<td>\beta \</td>
+<td>$ 分别为 $\alpha $ 和 $\beta $ 的长度）；仅仅 $S \rightarrow \varepsilon $ 例外，但S不得出现在任何产生式右部。</td>
 </tr>
 </tbody>
 </table>
@@ -722,7 +730,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">15.2k</span>
+    <span title="Site words total count">15.3k</span>
   
 
 
@@ -745,7 +753,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共15.2k字</span>
+  <span class="post-count">博客全站共15.3k字</span>
 </div>
         
 
