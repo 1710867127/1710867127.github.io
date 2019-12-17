@@ -96,7 +96,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QII9c4.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QIoFxg.png">
-<meta property="og:updated_time" content="2019-12-17T06:33:05.144Z">
+<meta property="og:updated_time" content="2019-12-17T06:45:48.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="绪论什么是编译 编译程序的结构 词法分析器：又称扫描器，输入源程序，进行词法分析，输出单词符号 语法分析器：又称分析器，对单词符号进行语法分析（根据语法规则进行推导或归约），识别出各类语法单位，最终判断输入串是否构成语法上正确的”程序” 语义分析与中间代码产生器：按照语义规则对语法分析器归约出的语法单位进行语义分析并把它们翻译成一定形式的中间代码 优化器：对中间代码进行优化处理 目标代码生成器：把">
@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  326
+                  414
                 </span>
               
 
@@ -401,7 +401,10 @@
 <p><strong>优化器</strong>：对中间代码进行优化处理</p>
 <p><strong>目标代码生成器</strong>：把中间代码翻译成目标程序</p>
 <h3 id="程序语言的语法描述"><a href="#程序语言的语法描述" class="headerlink" title="程序语言的语法描述"></a>程序语言的语法描述</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>$\Sigma$ 是一个有穷<strong>字母表</strong> ，它的每个元素成为一个<strong>符号</strong>。$\Sigma$ 上的一个<strong>符号串</strong>是指由 $\Sigma$ 中的符号所构成的一个有穷序列。不包含任何符号的序列成为空字，记为 $\varepsilon$ 。用 $\Sigma^*$ 表示 $\Sigma$ 上的所有符号串的全体，空字 $\varepsilon$ 也包括其中。例如，若 $\Sigma=\{a,b\}$ ，则 $\Sigma^* = \{\varepsilon,a,b,aa,ab,ba,bb,aaa,…\}$ 。 $\phi$ 表示不含任何元素的空集。要注意 $\varepsilon$ 、 $\{\}$ 、 $\{\varepsilon\}$ 的区别。</p>
-
+<p>$\Sigma^*$ 的子集U和V的(连接)积定义为</p>
+<script type="math/tex; mode=display">UV=\{\alpha \beta |\alpha \in U \& \beta \in V\}</script><p>即集合UV中的符号是由U和V的符号串连接而成的。注意，一般而言，UV ≠ VU，但(UV)W = U(VW)。V自身的n次(连接)积为</p>
+<script type="math/tex; mode=display">V^n = \underset{n}{VV...V}</script><p>规定 $V^0=\{\varepsilon\}$ 。令</p>
+<script type="math/tex; mode=display">V^* = V^0\cup V^1\cup V^2 \cup V^3...</script>
       
     </div>
     
@@ -656,7 +659,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">13.6k</span>
+    <span title="Site words total count">13.7k</span>
   
 
 
@@ -679,7 +682,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共13.6k字</span>
+  <span class="post-count">博客全站共13.7k字</span>
 </div>
         
 
