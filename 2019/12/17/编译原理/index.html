@@ -96,7 +96,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QII9c4.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QIoFxg.png">
-<meta property="og:updated_time" content="2019-12-17T11:32:40.316Z">
+<meta property="og:updated_time" content="2019-12-17T11:56:02.588Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="绪论什么是编译 编译程序的结构 词法分析器：又称扫描器，输入源程序，进行词法分析，输出单词符号 语法分析器：又称分析器，对单词符号进行语法分析（根据语法规则进行推导或归约），识别出各类语法单位，最终判断输入串是否构成语法上正确的”程序” 语义分析与中间代码产生器：按照语义规则对语法分析器归约出的语法单位进行语义分析并把它们翻译成一定形式的中间代码 优化器：对中间代码进行优化处理 目标代码生成器：把">
@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.7k
+                  1.9k
                 </span>
               
 
@@ -423,12 +423,50 @@
 <h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="第一章-引论"><a href="#第一章-引论" class="headerlink" title="第一章 引论"></a>第一章 引论</h3><p>1、宿主机、目标机概念，何谓编译程序？编译程序的输入输出是什么？</p>
 <p>2、编译程序的“前端”、“后端”主要由哪些部分组成？它们与目标机器有何关系？</p>
 <p>3、编译程序各个阶段的输入输出、所依循的规则及描述该规则的工具。<strong>结合图1.1</strong>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">1、运行编译程序的计算机称宿主机，运行编译程序所产生的目标代码的计算机称为目标机。</span><br><span class="line"></span><br><span class="line">把某种语言程序转换成另一种语言程序，如果源语言是“高级语言”，而目标程序是“低级语言”，这样的一个翻译程序就称为编译程序。</span><br><span class="line"></span><br><span class="line">输入：源程序	输出：目标程序</span><br><span class="line"></span><br><span class="line">2、前端主要由与源语言有关但与目标机器无关的部分组成，通常包括词法分析、语法分析、语义分析与中间代码生成。后端包括编译程序中与目标机有关的部分，如与目标机有关的代码优化和目标代码生成等。</span><br><span class="line"></span><br><span class="line">可以取编译程序的前端，改写后端以生成不同目标机上的相同语言的编译程序。这样就可以实现编译程序的目标机的改变。也可以讲几种源语言编译成相同的中间语言，然后为不同的前端配上相同的后端，这样就可以为一台机器生成不同语言的编译程序。</span><br><span class="line"></span><br><span class="line">3、第一阶段，词法分析。	输入源程序，输出单词符号。	在词法分析阶段所依循的是语言的词法规则(构词规则)。描述词法规则的有效工具是正规式和有限自动机。</span><br><span class="line"></span><br><span class="line">第二阶段，语法分析。	在词法分析的基础上，根据语言的语法规则，把单词符号分解成各类语法单位。(输入：单词符号，输出：各类语法范畴)	语法分析所依循的是语言的语法规则，语法规则通常用上下文无关文法描述。</span><br><span class="line"></span><br><span class="line">第三阶段，语义分析与中间代码产生	分析语法的含义，并初步翻译。一方面对每种语法范畴进行静态语义检查，另一方面进行中间代码的翻译。(输入：语法范畴，输出：中间代码)	所依循的是语言的语义规则。</span><br><span class="line"></span><br><span class="line">第四阶段，优化。	对前端产生的中间代码进行加工变换，主要有公共表达式的提取、循环优化、删除无用代码等。(输入：中间代码，输出：高效的中间代码)	所依循规则是程序的等价变换规则。</span><br><span class="line">第五阶段，目标代码生成	把中间代码变化成待定机器上的低级语言代码。(输入：中间代码，输出：目标代码)	工作有赖于硬件系统结构和机器指令含义。</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1、运行编译程序的计算机称<strong>宿主机</strong>，运行编译程序所产生的目标代码的计算机称为<strong>目标机</strong>。<br><br>把某种语言程序转换成另一种语言程序，如果源语言是“高级语言”，而目标程序是“低级语言”，这样的一个翻译程序就称为<strong>编译程序</strong>。<br><br>输入：<strong>源程序</strong>    输出：<strong>目标程序</strong></td>
+</tr>
+<tr>
+<td>2、前端主要由与<strong>源语言有关</strong>但与<strong>目标机器无关</strong>的部分组成，通常包括<strong>词法分析</strong>、<strong>语法分析</strong>、<strong>语义分析与中间代码生成</strong>。后端包括编译程序中与目标机有关的部分，如与目标机有关的<strong>代码优化</strong>和<strong>目标代码生成</strong>等。<br><br>可以取编译程序的前端，改写后端以生成不同目标机上的相同语言的编译程序。这样就可以实现编译程序的目标机的改变。也可以讲几种源语言编译成相同的中间语言，然后为不同的前端配上相同的后端，这样就可以为一台机器生成不同语言的编译程序。</td>
+</tr>
+<tr>
+<td>3、第一阶段，<strong>词法分析</strong>。    输入源程序，输出单词符号。    在词法分析阶段所依循的是语言的词法规则(构词规则)。描述词法规则的有效工具是正规式和有限自动机。<br><br>第二阶段，<strong>语法分析</strong>。    在词法分析的基础上，根据语言的语法规则，把单词符号分解成各类语法单位。(输入：单词符号，输出：各类语法范畴)    语法分析所依循的是语言的语法规则，语法规则通常用上下文无关文法描述。<br><br>第三阶段，<strong>语义分析与中间代码产生</strong>    分析语法的含义，并初步翻译。一方面对每种语法范畴进行静态语义检查，另一方面进行中间代码的翻译。(输入：语法范畴，输出：中间代码)    所依循的是语言的语义规则。<br>第四阶段，<strong>优化</strong>。    对前端产生的中间代码进行加工变换，主要有公共表达式的提取、循环优化、删除无用代码等。(输入：中间代码，输出：高效的中间代码)    所依循规则是程序的等价变换规则。<br><br>第五阶段，<strong>目标代码生成</strong>    把中间代码变化成待定机器上的低级语言代码。(输入：中间代码，输出：目标代码)    工作有赖于硬件系统结构和机器指令含义。</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h3 id="高级语言及其语法描述-1"><a href="#高级语言及其语法描述-1" class="headerlink" title="高级语言及其语法描述"></a>高级语言及其语法描述</h3><p>4、给定文法G，怎么样得到由G生成的句子？依据是什么？语法规则用来描述什么？上下文无关文法及其组成。</p>
 <p>5、最左推导、最右推导、语法分析树。</p>
 <p>6、乔布斯基把文法分为几种，各种文法的情况怎样(0型、1型、2型、3型)？</p>
 <p><strong>作业：第八题</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>5、最左推导：任何一步 $\alpha \rightarrow \beta$ 都是对 $\alpha$ 中的最左非终结符进行替换的。<br><br>最右推导：同理<br><br>语法分析树：用一张图来表示一个句型的推导，这种表示称为<strong>语法分析树</strong>。</td>
+</tr>
+<tr>
+<td>乔姆斯基把文法分为四种<br>0型文法也叫<strong>短语文法</strong>，任何0型文法都是递归可枚举的；反之，递归可枚举集必定是一个0型语言。<br>1型文法也叫<strong>上下有关文法</strong>。对非终结符替换时务必考虑上下文，并且一般不允许替换成空串 $\varepsilon$ 。</td>
+</tr>
+</tbody>
+</table>
+</div>
 
       
     </div>
@@ -684,7 +722,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">15.1k</span>
+    <span title="Site words total count">15.2k</span>
   
 
 
@@ -707,7 +745,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共15.1k字</span>
+  <span class="post-count">博客全站共15.2k字</span>
 </div>
         
 
