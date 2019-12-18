@@ -98,11 +98,20 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QIoFxg.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QTFIfK.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QTFtyQ.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/18/Q7uVgI.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/18/Q73G24.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/18/Q73xiT.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/18/Q7DWct.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/18/Q7DTAg.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/18/Q7vvfe.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/18/Q7z7a6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/18/QH9fxg.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/18/QH9Iqs.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QTEAJ0.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QTEc6S.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QTEIf0.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QTE7lT.md.png">
-<meta property="og:updated_time" content="2019-12-17T13:52:14.122Z">
+<meta property="og:updated_time" content="2019-12-18T12:02:28.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="绪论什么是编译 编译程序的结构 词法分析器：又称扫描器，输入源程序，进行词法分析，输出单词符号 语法分析器：又称分析器，对单词符号进行语法分析（根据语法规则进行推导或归约），识别出各类语法单位，最终判断输入串是否构成语法上正确的”程序” 语义分析与中间代码产生器：按照语义规则对语法分析器归约出的语法单位进行语义分析并把它们翻译成一定形式的中间代码 优化器：对中间代码进行优化处理 目标代码生成器：把">
@@ -362,7 +371,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.1k
+                  3.4k
                 </span>
               
 
@@ -378,7 +387,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  12
                 </span>
               
             </div>
@@ -427,7 +436,198 @@
 <h3 id="语法分析树与二义性"><a href="#语法分析树与二义性" class="headerlink" title="语法分析树与二义性"></a>语法分析树与二义性</h3><p>用一张图来表示一个句型的推导，这种表示称为<strong>语法分析树</strong>。根节点由开始符号所标记。</p>
 <p><a href="https://imgchr.com/i/QTFtyQ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/12/17/QTFtyQ.md.png" alt="QTFtyQ.md.png"></a></p>
 <p>如果一个文法存在某个句子对应两棵不同的语法树，则称这个文法是<strong>二义</strong>的。也就是说，若一个文法中存在某个句子，它有两个不同的最左(右)推导，则这个文法是二义的。</p>
-<hr>
+<h2 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h2><h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><p><strong>关键字</strong>：是由程序语言定义的具有固定意义的标识符。有时称这些标识符为保留字或基本字。通常不作为一般标识符。</p>
+<p><strong>标识符</strong>：用来表示各种名字，如变量名、数组名、过程名等等。</p>
+<p><strong>常数</strong>：常数的类型一般有int, double, bool等。</p>
+<p><strong>运算符</strong>：如：+，-，*，/等。</p>
+<p><strong>界符</strong>：如逗号、分好、括号等。</p>
+<h3 id="状态转换图"><a href="#状态转换图" class="headerlink" title="状态转换图"></a>状态转换图</h3><p><strong>转换图</strong>是一张<strong>有限方向图</strong>。在状态转换图中，<strong>结点</strong>代表<strong>状态</strong>，用圆圈表示。状态之间用箭弧连结。箭弧上的标记代表在射出结点状态下可能出现的输入字符或字符类。一张转换图只包含有限个状态，其中有一个被认为是<strong>初态</strong>，而实际上至少要有一个<strong>终态</strong>(用双圈表示)。</p>
+<h3 id="正规-则-表达式与有限自动机"><a href="#正规-则-表达式与有限自动机" class="headerlink" title="正规(则)表达式与有限自动机"></a>正规(则)表达式与有限自动机</h3><p><strong>正则表达式</strong>(Regular Expression, RE)是一种用来描述正则语言的更紧凑的表示方法。</p>
+<p>正则表达式可以由<strong>较小的正则表达式</strong>按照特定规则<strong>递归</strong>地构建。每个正则表达式r定义(表示)一个语言，记为<strong>L(r)</strong>。</p>
+<h4 id="正规-则-表达式的定义"><a href="#正规-则-表达式的定义" class="headerlink" title="正规(则)表达式的定义"></a>正规(则)表达式的定义</h4><p>$\varepsilon$ 是一个RE, L( $\varepsilon$ ) = $\{\varepsilon\}$</p>
+<p>如果 $\alpha \in \Sigma$ ，那么 $\alpha$ 是一个RE, $L(\alpha) = \{\alpha\}$</p>
+<p>假设r和s都是RE, 表示的语言分别是L(r)和L(s), 则</p>
+<p>$r | s$是一个 $RE$ , $L(r | s) = L(r) \cup L(s)$</p>
+<p>$rs$ 是一个 $RE$ , $L(rs) = L(r)L(s)$</p>
+<p>$r^*$ 是一个 $RE$ , $L(r^*) = (L(r))^*$</p>
+<p>算符运算的优先级：<strong>*</strong>、<strong>连接</strong>、<strong>|</strong></p>
+<p><img src="https://s2.ax1x.com/2019/12/18/Q7uVgI.png" alt="Q7uVgI.png"></p>
+<p>可以用RE定义的语言叫<strong>正则语言</strong>或<strong>正则集合</strong>。</p>
+<p>RE的代数定律：</p>
+<p>(1) $U | V = V | U $</p>
+<p>(2) $ U | (V | W) = (U | V) | W$</p>
+<p>(3) $U(VW) = (UV)W$</p>
+<p>(4) $U(V|W) = UV|UW$ ; $(V|W)U = VU|WU$</p>
+<p>(5) $\varepsilon U = U\varepsilon = U$</p>
+<h4 id="确定有限自动机-DFA"><a href="#确定有限自动机-DFA" class="headerlink" title="确定有限自动机(DFA)"></a>确定有限自动机(DFA)</h4><p>一个确定有限自动机(DFA)M是一个五元式</p>
+<script type="math/tex; mode=display">M = (S, \Sigma , \delta , s_0 , F)</script><p>其中</p>
+<ol>
+<li>S是一个有限集，每个元素被称为一个<strong>状态</strong>。</li>
+<li>$\Sigma$ 是一个有穷<strong>字母表</strong>，它的每一个元素称为一个<strong>输入字符</strong>。</li>
+<li>$\delta$ 是一个从 $S \times \Sigma$ 至 $S$ 的单值部分映射。 $\delta (s,a) = s’$ 意味着：当现行状态为s，输入字符为a时，将转换到下一状态s‘。我们称s’为s的一个后继状态。</li>
+<li>$s_0 \in S$ ，是唯一的初态。</li>
+<li>$F \subseteq S$ 是一个终态集（可空）。</li>
+</ol>
+<p>例如有DFA</p>
+<script type="math/tex; mode=display">M = (\{0,1,2,3\} , \{a, b\} , \delta , 0, \{3\})</script><p>其中 $\delta$ 为</p>
+<p><img src="https://s2.ax1x.com/2019/12/18/Q73G24.png" alt="Q73G24.png"></p>
+<p>则它所对应的状态转换矩阵如表所列。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>a</th>
+<th>b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>0</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>一个DFA也可以表示成一张确定的状态转换图。</p>
+<p><img src="https://s2.ax1x.com/2019/12/18/Q73xiT.png" alt="Q73xiT.png"></p>
+<h4 id="非确定有限自动机-NFA"><a href="#非确定有限自动机-NFA" class="headerlink" title="非确定有限自动机(NFA)"></a>非确定有限自动机(NFA)</h4><p>一个非确定有限自动机(NFA)M是一个五元式</p>
+<script type="math/tex; mode=display">M = (S, \Sigma , \delta , S_0, F)</script><p>其中</p>
+<p>$\delta$ 是一个从 $S \times \Sigma^*$ 的子集映照，即</p>
+<script type="math/tex; mode=display">\delta \texttt{:} S \times \Sigma^* \rightarrow 2^S</script><p>$S_0 \subseteq S$ , 是一个非空初态集</p>
+<p>$F \subseteq S$ ，是一个终态集（可空）</p>
+<h4 id="从正则表达式到有限自动机"><a href="#从正则表达式到有限自动机" class="headerlink" title="从正则表达式到有限自动机"></a>从正则表达式到有限自动机</h4><p><img src="https://s2.ax1x.com/2019/12/18/Q7DWct.png" alt="Q7DWct.png"></p>
+<p><img src="https://s2.ax1x.com/2019/12/18/Q7DTAg.png" alt="Q7DTAg.png"></p>
+<h4 id="NFA转化成DFA"><a href="#NFA转化成DFA" class="headerlink" title="NFA转化成DFA"></a>NFA转化成DFA</h4><p>这部分理解起来有点难，举个例子来说明一下</p>
+<p>（1）P50 例3.3</p>
+<p>正规式 $(a|b)^*(aa|bb)(a|b)^*$ 对应的NFA如图所示，X为初态，Y为终态。</p>
+<p><img src="https://s2.ax1x.com/2019/12/18/Q7vvfe.png" alt="Q7vvfe.png"></p>
+<p>首先我们要构造一个状态转换矩阵。矩阵如下所示：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>I</th>
+<th>Ia</th>
+<th>Ib</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{X,5,1}</td>
+<td>{5,3,1}</td>
+<td>{5,4,1}</td>
+</tr>
+<tr>
+<td>{5,3,1}</td>
+<td>{5,3,1,2,6,Y}</td>
+<td>{5,4,1}</td>
+</tr>
+<tr>
+<td>{5,4,1}</td>
+<td>{5,3,1}</td>
+<td>{5,4,1,2,6,Y}</td>
+</tr>
+<tr>
+<td>{5,3,1,2,6,Y}</td>
+<td>{5,3,1,2,6,Y}</td>
+<td>{5,4,1,6,Y}</td>
+</tr>
+<tr>
+<td>{5,4,1,6,Y}</td>
+<td>{5,3,1,6,Y}</td>
+<td>{5,4,1,2,6,Y}</td>
+</tr>
+<tr>
+<td>{5,4,1,2,6,Y}</td>
+<td>{5,3,1,6,Y}</td>
+<td>{5,4,1,2,6,Y}</td>
+</tr>
+<tr>
+<td>{5,3,1,6,Y}</td>
+<td>{5,3,1,2,6,Y}</td>
+<td>{5,4,1,6,Y}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>矩阵有3个状态，I, Ia,Ib。下面说说第一行的三项如何得出：(S就是开始状态)</p>
+<p>先以S开始，经过任意个 $\varepsilon$ 得到的结点就是第一个I，这个题目就是{X,5,1}</p>
+<p>然后将{X,5,1}里每一个字符经过a(中间可以有 $\varepsilon$ )后得到的结点加起来</p>
+<p>X的la={5,3,1}, 5的la={5,1,3}, 1的la={1,3}</p>
+<p>后面的lb也是同理</p>
+<p>后面的I其实就是前面的la和lb，用这种方式一直计算，直到不再出现新的l</p>
+<p>然后重新命名，就得到了一个未化简的DFA</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>s</th>
+<th>a</th>
+<th>b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>6</td>
+<td>5</td>
+</tr>
+<tr>
+<td>5</td>
+<td>6</td>
+<td>5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="https://s2.ax1x.com/2019/12/18/Q7z7a6.png" alt="Q7z7a6.png"></p>
+<h4 id="确定有限自动机的简化"><a href="#确定有限自动机的简化" class="headerlink" title="确定有限自动机的简化"></a>确定有限自动机的简化</h4><p><strong>子集分割法</strong>：把一个DFA M的状态分割成一些不相交的子集，使得任何不同的两个子集的状态都是可区别的，而同一子集中的两个状态都是等价的。最后，在每个子集中选出一个代表，同时消去其他等价的状态。如果在从M′中删除所有的无用状态（多余状态），则M′便是最简的（状态最少），从而得到把DFA M状态简化了的DFA M’。</p>
+<p>图片比人讲的清楚系列……</p>
+<p> <img src="https://s2.ax1x.com/2019/12/18/QH9fxg.png" alt="QH9fxg.png"></p>
+<p><img src="https://s2.ax1x.com/2019/12/18/QH9Iqs.png" alt="QH9Iqs.png"></p>
+<h2 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h2><hr>
 <h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="第一章-引论"><a href="#第一章-引论" class="headerlink" title="第一章 引论"></a>第一章 引论</h3><p>1、宿主机、目标机概念，何谓编译程序？编译程序的输入输出是什么？</p>
 <p>2、编译程序的“前端”、“后端”主要由哪些部分组成？它们与目标机器有何关系？</p>
 <p>3、编译程序各个阶段的输入输出、所依循的规则及描述该规则的工具。<strong>结合图1.1</strong>。</p>
@@ -689,7 +889,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绪论"><span class="nav-number">1.</span> <span class="nav-text">绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是编译"><span class="nav-number">1.1.</span> <span class="nav-text">什么是编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译程序的结构"><span class="nav-number">1.2.</span> <span class="nav-text">编译程序的结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级语言及其语法描述"><span class="nav-number">2.</span> <span class="nav-text">高级语言及其语法描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下文无关文法"><span class="nav-number">2.2.</span> <span class="nav-text">上下文无关文法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法分析树与二义性"><span class="nav-number">2.3.</span> <span class="nav-text">语法分析树与二义性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">3.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一章-引论"><span class="nav-number">3.1.</span> <span class="nav-text">第一章 引论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级语言及其语法描述-1"><span class="nav-number">3.2.</span> <span class="nav-text">高级语言及其语法描述</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绪论"><span class="nav-number">1.</span> <span class="nav-text">绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是编译"><span class="nav-number">1.1.</span> <span class="nav-text">什么是编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译程序的结构"><span class="nav-number">1.2.</span> <span class="nav-text">编译程序的结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级语言及其语法描述"><span class="nav-number">2.</span> <span class="nav-text">高级语言及其语法描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下文无关文法"><span class="nav-number">2.2.</span> <span class="nav-text">上下文无关文法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法分析树与二义性"><span class="nav-number">2.3.</span> <span class="nav-text">语法分析树与二义性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词法分析"><span class="nav-number">3.</span> <span class="nav-text">词法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念-1"><span class="nav-number">3.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态转换图"><span class="nav-number">3.2.</span> <span class="nav-text">状态转换图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正规-则-表达式与有限自动机"><span class="nav-number">3.3.</span> <span class="nav-text">正规(则)表达式与有限自动机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正规-则-表达式的定义"><span class="nav-number">3.3.1.</span> <span class="nav-text">正规(则)表达式的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确定有限自动机-DFA"><span class="nav-number">3.3.2.</span> <span class="nav-text">确定有限自动机(DFA)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非确定有限自动机-NFA"><span class="nav-number">3.3.3.</span> <span class="nav-text">非确定有限自动机(NFA)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从正则表达式到有限自动机"><span class="nav-number">3.3.4.</span> <span class="nav-text">从正则表达式到有限自动机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NFA转化成DFA"><span class="nav-number">3.3.5.</span> <span class="nav-text">NFA转化成DFA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确定有限自动机的简化"><span class="nav-number">3.3.6.</span> <span class="nav-text">确定有限自动机的简化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法分析"><span class="nav-number">4.</span> <span class="nav-text">语法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">5.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一章-引论"><span class="nav-number">5.1.</span> <span class="nav-text">第一章 引论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级语言及其语法描述-1"><span class="nav-number">5.2.</span> <span class="nav-text">高级语言及其语法描述</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -730,7 +930,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">15.4k</span>
+    <span title="Site words total count">16.7k</span>
   
 
 
@@ -753,7 +953,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共15.4k字</span>
+  <span class="post-count">博客全站共16.7k字</span>
 </div>
         
 
