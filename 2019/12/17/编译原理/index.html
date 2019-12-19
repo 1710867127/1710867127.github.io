@@ -107,11 +107,14 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/18/Q7z7a6.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/18/QH9fxg.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/18/QH9Iqs.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/19/Qq5V0g.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/19/QqvM9O.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/19/QqvtEt.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QTEAJ0.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QTEc6S.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QTEIf0.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QTE7lT.md.png">
-<meta property="og:updated_time" content="2019-12-18T12:02:28.435Z">
+<meta property="og:updated_time" content="2019-12-19T13:47:49.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="绪论什么是编译 编译程序的结构 词法分析器：又称扫描器，输入源程序，进行词法分析，输出单词符号 语法分析器：又称分析器，对单词符号进行语法分析（根据语法规则进行推导或归约），识别出各类语法单位，最终判断输入串是否构成语法上正确的”程序” 语义分析与中间代码产生器：按照语义规则对语法分析器归约出的语法单位进行语义分析并把它们翻译成一定形式的中间代码 优化器：对中间代码进行优化处理 目标代码生成器：把">
@@ -371,7 +374,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.4k
+                  4.2k
                 </span>
               
 
@@ -387,7 +390,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  12
+                  15
                 </span>
               
             </div>
@@ -627,7 +630,42 @@
 <p>图片比人讲的清楚系列……</p>
 <p> <img src="https://s2.ax1x.com/2019/12/18/QH9fxg.png" alt="QH9fxg.png"></p>
 <p><img src="https://s2.ax1x.com/2019/12/18/QH9Iqs.png" alt="QH9Iqs.png"></p>
-<h2 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h2><hr>
+<h2 id="语法分析——自上而下分析"><a href="#语法分析——自上而下分析" class="headerlink" title="语法分析——自上而下分析"></a>语法分析——自上而下分析</h2><h3 id="自顶向下分析"><a href="#自顶向下分析" class="headerlink" title="自顶向下分析"></a>自顶向下分析</h3><p>从分析树顶部（根节点）向底部（叶节点）方向构造分析树</p>
+<p>可以看成是从文法开始符号S推导出词串w的过程</p>
+<p><strong>最左推导</strong>：总是选择每个句型的最左非终结符进行替换。</p>
+<p><strong>最右推导</strong>：总是选择每个句型的最右非终结符进行替换。</p>
+<p>在自底向上分析中，总是采用最左归约方式，因此把最左归约称为规范归约，而最右推导称为规范推导。</p>
+<p>自顶向下的语法分析采取最左推导方式</p>
+<p>预测分析是递归下降分析技术的一个特例，通过在输入中向前看固定个数（通常是一个）符号来选择正确的A-产生式。</p>
+<p>可以对某些文法构造出向前看k个输入符号的预测分析器，该类文法有时也称为LL(k) 文法类</p>
+<p>预测分析不需要回溯，是一种确定的自顶向下分析方法</p>
+<h3 id="LL-1-分析法"><a href="#LL-1-分析法" class="headerlink" title="LL(1)分析法"></a>LL(1)分析法</h3><p>如果一个文法G满足以下条件，则称该文法G为<strong>LL(1)文法</strong>：</p>
+<p>(1) 文法不含左递归</p>
+<p>(2) 对于文法中每一个非终结符A的各个产生式的候选首符集两两不想交。即，若</p>
+<script type="math/tex; mode=display">A \rightarrow \alpha_1 | \alpha_2 | ... | \alpha_n</script><p>则         <script type="math/tex">FIRST(\alpha_i) \cap FIRST(\alpha_j) = \phi\;\;\;\;\;\;(i \neq j)</script></p>
+<p>(3) 对于文法中每一个非终结符A，若它存在某个候选首符集包含 $\varepsilon$ ,则</p>
+<script type="math/tex; mode=display">FIRST(A) \cap FOLLOW(A) = \phi</script><p>那么构造LL(1)文法很重要一点就是消除回溯和左递归。</p>
+<h4 id="消除左递归"><a href="#消除左递归" class="headerlink" title="消除左递归"></a>消除左递归</h4><h5 id="消除直接左递归"><a href="#消除直接左递归" class="headerlink" title="消除直接左递归"></a>消除直接左递归</h5><p>假定关于非终结符P的规则为</p>
+<script type="math/tex; mode=display">P \rightarrow P \alpha | \beta</script><p>其中，$\beta$ 不以P开头。那么，我们可以把P的规则改写为如下的非直接左递归形式：</p>
+<script type="math/tex; mode=display">P \rightarrow \beta P’</script><script type="math/tex; mode=display">P’ \rightarrow \alpha P’ | \varepsilon</script><p><img src="https://s2.ax1x.com/2019/12/19/Qq5V0g.png" alt="Qq5V0g.png"></p>
+<p>一般而言，假定P关于的全部产生式是</p>
+<script type="math/tex; mode=display">P \rightarrow P\alpha_1 | P\alpha_2 | ... | P\alpha_m | \beta_1 | \beta_2 | ... | \beta_n</script><p>其中，每个 $\alpha$ 都不等于 $\varepsilon$ ，而每个 $\beta$ 都不以P开头，那么，消除P的直接左递归性就是把这些规则改成：</p>
+<script type="math/tex; mode=display">P \rightarrow \beta_1 P’ | \beta_2 P’ | ... | \beta_n P’</script><script type="math/tex; mode=display">P’ \rightarrow \alpha_1 P’ | \alpha_2 P’ | ... | \alpha_n P’ | \varepsilon</script><h5 id="消除间接左递归"><a href="#消除间接左递归" class="headerlink" title="消除间接左递归"></a>消除间接左递归</h5><p>现有文法</p>
+<script type="math/tex; mode=display">S \rightarrow Qc|c</script><script type="math/tex; mode=display">Q \rightarrow Rb|b</script><script type="math/tex; mode=display">R \rightarrow Sa|a</script><p>虽然不具有直接左递归，但是S Q R都是左递归的，例如有</p>
+<script type="math/tex; mode=display">S \rightarrow Qc \rightarrow Rbc \rightarrow Sabc</script><p>我们把R代入Q的有关候选式后，我们把Q的规则变为</p>
+<script type="math/tex; mode=display">Q \rightarrow Sab | ab | b</script><p>现在Q同样不含左递归，把Q代入到S的有关候选式后，S变成</p>
+<script type="math/tex; mode=display">S \rightarrow Sabc | abc | bc | c</script><p>根据上面我们所讲的消除S左递归的通式，消除左递归之后整个文法为</p>
+<p>$S \rightarrow abcS’ | bcS’ | cS’$</p>
+<p>$S’ \rightarrow abcS’ | \varepsilon$</p>
+<p>$Q \rightarrow Sab | ab | b$</p>
+<p>$R \rightarrow Sa | a$</p>
+<p>显然Q和R的规则是多余的，所以简化后的文法为</p>
+<p>$S \rightarrow abcS’ | bcS’ | cS’$</p>
+<p>$S’ \rightarrow abcS’ | \varepsilon$</p>
+<p>注意，由于对非终结符排序的不同，最后所得的文法在形式上可能不一样。但是它们都是等价的。</p>
+<h4 id="消除回溯、提左因子"><a href="#消除回溯、提左因子" class="headerlink" title="消除回溯、提左因子"></a>消除回溯、提左因子</h4><p><img src="https://s2.ax1x.com/2019/12/19/QqvM9O.png" alt="QqvM9O.png"></p>
+<p><img src="https://s2.ax1x.com/2019/12/19/QqvtEt.png" alt="QqvtEt.png"></p>
+<hr>
 <h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="第一章-引论"><a href="#第一章-引论" class="headerlink" title="第一章 引论"></a>第一章 引论</h3><p>1、宿主机、目标机概念，何谓编译程序？编译程序的输入输出是什么？</p>
 <p>2、编译程序的“前端”、“后端”主要由哪些部分组成？它们与目标机器有何关系？</p>
 <p>3、编译程序各个阶段的输入输出、所依循的规则及描述该规则的工具。<strong>结合图1.1</strong>。</p>
@@ -889,7 +927,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绪论"><span class="nav-number">1.</span> <span class="nav-text">绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是编译"><span class="nav-number">1.1.</span> <span class="nav-text">什么是编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译程序的结构"><span class="nav-number">1.2.</span> <span class="nav-text">编译程序的结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级语言及其语法描述"><span class="nav-number">2.</span> <span class="nav-text">高级语言及其语法描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下文无关文法"><span class="nav-number">2.2.</span> <span class="nav-text">上下文无关文法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法分析树与二义性"><span class="nav-number">2.3.</span> <span class="nav-text">语法分析树与二义性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词法分析"><span class="nav-number">3.</span> <span class="nav-text">词法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念-1"><span class="nav-number">3.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态转换图"><span class="nav-number">3.2.</span> <span class="nav-text">状态转换图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正规-则-表达式与有限自动机"><span class="nav-number">3.3.</span> <span class="nav-text">正规(则)表达式与有限自动机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正规-则-表达式的定义"><span class="nav-number">3.3.1.</span> <span class="nav-text">正规(则)表达式的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确定有限自动机-DFA"><span class="nav-number">3.3.2.</span> <span class="nav-text">确定有限自动机(DFA)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非确定有限自动机-NFA"><span class="nav-number">3.3.3.</span> <span class="nav-text">非确定有限自动机(NFA)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从正则表达式到有限自动机"><span class="nav-number">3.3.4.</span> <span class="nav-text">从正则表达式到有限自动机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NFA转化成DFA"><span class="nav-number">3.3.5.</span> <span class="nav-text">NFA转化成DFA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确定有限自动机的简化"><span class="nav-number">3.3.6.</span> <span class="nav-text">确定有限自动机的简化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法分析"><span class="nav-number">4.</span> <span class="nav-text">语法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">5.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一章-引论"><span class="nav-number">5.1.</span> <span class="nav-text">第一章 引论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级语言及其语法描述-1"><span class="nav-number">5.2.</span> <span class="nav-text">高级语言及其语法描述</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绪论"><span class="nav-number">1.</span> <span class="nav-text">绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是编译"><span class="nav-number">1.1.</span> <span class="nav-text">什么是编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译程序的结构"><span class="nav-number">1.2.</span> <span class="nav-text">编译程序的结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级语言及其语法描述"><span class="nav-number">2.</span> <span class="nav-text">高级语言及其语法描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下文无关文法"><span class="nav-number">2.2.</span> <span class="nav-text">上下文无关文法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法分析树与二义性"><span class="nav-number">2.3.</span> <span class="nav-text">语法分析树与二义性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词法分析"><span class="nav-number">3.</span> <span class="nav-text">词法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念-1"><span class="nav-number">3.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态转换图"><span class="nav-number">3.2.</span> <span class="nav-text">状态转换图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正规-则-表达式与有限自动机"><span class="nav-number">3.3.</span> <span class="nav-text">正规(则)表达式与有限自动机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正规-则-表达式的定义"><span class="nav-number">3.3.1.</span> <span class="nav-text">正规(则)表达式的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确定有限自动机-DFA"><span class="nav-number">3.3.2.</span> <span class="nav-text">确定有限自动机(DFA)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非确定有限自动机-NFA"><span class="nav-number">3.3.3.</span> <span class="nav-text">非确定有限自动机(NFA)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从正则表达式到有限自动机"><span class="nav-number">3.3.4.</span> <span class="nav-text">从正则表达式到有限自动机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NFA转化成DFA"><span class="nav-number">3.3.5.</span> <span class="nav-text">NFA转化成DFA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确定有限自动机的简化"><span class="nav-number">3.3.6.</span> <span class="nav-text">确定有限自动机的简化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法分析——自上而下分析"><span class="nav-number">4.</span> <span class="nav-text">语法分析——自上而下分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自顶向下分析"><span class="nav-number">4.1.</span> <span class="nav-text">自顶向下分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LL-1-分析法"><span class="nav-number">4.2.</span> <span class="nav-text">LL(1)分析法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#消除左递归"><span class="nav-number">4.2.1.</span> <span class="nav-text">消除左递归</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#消除直接左递归"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">消除直接左递归</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#消除间接左递归"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">消除间接左递归</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#消除回溯、提左因子"><span class="nav-number">4.2.2.</span> <span class="nav-text">消除回溯、提左因子</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">5.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一章-引论"><span class="nav-number">5.1.</span> <span class="nav-text">第一章 引论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级语言及其语法描述-1"><span class="nav-number">5.2.</span> <span class="nav-text">高级语言及其语法描述</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -930,7 +968,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">16.7k</span>
+    <span title="Site words total count">17.5k</span>
   
 
 
@@ -953,7 +991,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共16.7k字</span>
+  <span class="post-count">博客全站共17.5k字</span>
 </div>
         
 
