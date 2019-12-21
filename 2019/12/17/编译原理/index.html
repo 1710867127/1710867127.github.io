@@ -113,11 +113,19 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/20/QXkQFe.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/20/QXkkW9.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/20/QXVXkT.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/21/QjgawQ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/21/QjRca4.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/21/QjJO8s.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/21/Qjq5Qg.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/21/QjOlDJ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/21/Qv3EZD.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/21/Qv3Vde.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/21/QvIV00.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QTEAJ0.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QTEc6S.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QTEIf0.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/17/QTE7lT.md.png">
-<meta property="og:updated_time" content="2019-12-20T14:19:19.778Z">
+<meta property="og:updated_time" content="2019-12-21T14:11:25.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="绪论什么是编译 编译程序的结构 词法分析器：又称扫描器，输入源程序，进行词法分析，输出单词符号 语法分析器：又称分析器，对单词符号进行语法分析（根据语法规则进行推导或归约），识别出各类语法单位，最终判断输入串是否构成语法上正确的”程序” 语义分析与中间代码产生器：按照语义规则对语法分析器归约出的语法单位进行语义分析并把它们翻译成一定形式的中间代码 优化器：对中间代码进行优化处理 目标代码生成器：把">
@@ -377,7 +385,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4.7k
+                  5.8k
                 </span>
               
 
@@ -393,7 +401,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  18
+                  21
                 </span>
               
             </div>
@@ -436,7 +444,7 @@
 <p>为了书写方便，若干个左部相同的产生式可以合并为一个，缩写成</p>
 <p>$A \rightarrow \alpha_1 | \alpha_2 | … | \alpha_n$</p>
 <p>每一个 $\alpha_i$ 也称为P的一个<strong>候选式</strong></p>
-<p>假定G是一个文法，S是它的开始符号。如果 $S \overset{*}{\rightarrow} \alpha $  ,则称 $\alpha$ 是一个<strong>句型</strong>。进包含终结符号的句型是一个<strong>句子</strong>。 文法G所产生的句子的全体是一个<strong>语言</strong>，将它记为<strong>L(G)</strong>.</p>
+<p>假定G是一个文法，S是它的开始符号。如果 $S \overset{*}{\rightarrow} \alpha $  ,则称 $\alpha$ 是一个<strong>句型</strong>。仅包含终结符号的句型是一个<strong>句子</strong>。 文法G所产生的句子的全体是一个<strong>语言</strong>，将它记为<strong>L(G)</strong>.</p>
 <p><a href="https://imgchr.com/i/QTFIfK" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/12/17/QTFIfK.md.png" alt="QTFIfK.md.png"></a></p>
 <p><strong>最左推导</strong>：任何一步 $\alpha \rightarrow \beta$ 都是对 $\alpha$ 中的最左非终结符进行替换的。同理我们可以定义<strong>最右推导</strong>。</p>
 <h3 id="语法分析树与二义性"><a href="#语法分析树与二义性" class="headerlink" title="语法分析树与二义性"></a>语法分析树与二义性</h3><p>用一张图来表示一个句型的推导，这种表示称为<strong>语法分析树</strong>。根节点由开始符号所标记。</p>
@@ -446,7 +454,7 @@
 <p><strong>标识符</strong>：用来表示各种名字，如变量名、数组名、过程名等等。</p>
 <p><strong>常数</strong>：常数的类型一般有int, double, bool等。</p>
 <p><strong>运算符</strong>：如：+，-，*，/等。</p>
-<p><strong>界符</strong>：如逗号、分好、括号等。</p>
+<p><strong>界符</strong>：如逗号、分号、括号等。</p>
 <h3 id="状态转换图"><a href="#状态转换图" class="headerlink" title="状态转换图"></a>状态转换图</h3><p><strong>转换图</strong>是一张<strong>有限方向图</strong>。在状态转换图中，<strong>结点</strong>代表<strong>状态</strong>，用圆圈表示。状态之间用箭弧连结。箭弧上的标记代表在射出结点状态下可能出现的输入字符或字符类。一张转换图只包含有限个状态，其中有一个被认为是<strong>初态</strong>，而实际上至少要有一个<strong>终态</strong>(用双圈表示)。</p>
 <h3 id="正规-则-表达式与有限自动机"><a href="#正规-则-表达式与有限自动机" class="headerlink" title="正规(则)表达式与有限自动机"></a>正规(则)表达式与有限自动机</h3><p><strong>正则表达式</strong>(Regular Expression, RE)是一种用来描述正则语言的更紧凑的表示方法。</p>
 <p>正则表达式可以由<strong>较小的正则表达式</strong>按照特定规则<strong>递归</strong>地构建。每个正则表达式r定义(表示)一个语言，记为<strong>L(r)</strong>。</p>
@@ -730,7 +738,46 @@
 <p>等我们将所有的SELECT集算出，就可以画出预测分析表</p>
 <p><img src="https://s2.ax1x.com/2019/12/20/QXkkW9.png" alt="QXkkW9.png"></p>
 <h4 id="非递归的预测分析表"><a href="#非递归的预测分析表" class="headerlink" title="非递归的预测分析表"></a>非递归的预测分析表</h4><p><img src="https://s2.ax1x.com/2019/12/20/QXVXkT.png" alt="QXVXkT.png"></p>
-<h2 id="语法分析——自下而上分析"><a href="#语法分析——自下而上分析" class="headerlink" title="语法分析——自下而上分析"></a>语法分析——自下而上分析</h2><hr>
+<h2 id="语法分析——自下而上分析"><a href="#语法分析——自下而上分析" class="headerlink" title="语法分析——自下而上分析"></a>语法分析——自下而上分析</h2><p>从分析树底部（叶节点）向顶部（根节点）方向构造分析树</p>
+<p>可以看成是将输入串w归约为文法开始符号S的过程</p>
+<p>自顶向下的语法分析方式是<strong>最左推导</strong></p>
+<p>自底向上的语法分析方式是<strong>最左归约</strong>（反向构造最右推导）</p>
+<p>自底向上语法分析的通用框架是<strong>移入-归约分析(Shift-Reduce Parsing)</strong></p>
+<p><img src="https://s2.ax1x.com/2019/12/21/QjgawQ.png" alt="QjgawQ.png"></p>
+<p>直接短语也就是树中高度为2的短语</p>
+<p>每次归约的符号串称为<strong>句柄（句型的最左直接短语）</strong>   <strong>这个很重要！！</strong></p>
+<p><strong>素短语</strong>：指一个短语至少包含一个终结符，并且除它自身外不再包含其他素短语。</p>
+<p><strong>最左素短语</strong>：句型最左边的素短语。</p>
+<p>例如</p>
+<p><img src="https://s2.ax1x.com/2019/12/21/QjRca4.png" alt="QjRca4.png"></p>
+<p>短语：b、bb、d、abbcde</p>
+<p>直接短语：b、d</p>
+<p>句柄：b</p>
+<p>素短语：b、d</p>
+<p>最左素短语：b</p>
+<h3 id="移入归约分析的工作过程"><a href="#移入归约分析的工作过程" class="headerlink" title="移入归约分析的工作过程"></a>移入归约分析的工作过程</h3><p>在对输入串的一次从左到右扫描过程中，语法分析器将零个或多个输入符号移入到栈的顶端，直到它可以对栈顶的一个文法符号串β进行归约为止然后，它将β归约为某个产生式的左部<br>语法分析器不断地重复这个循环，直到它检测到一个语法错误，或者栈中包含了开始符号且输入缓冲区为空(当进入这样的格局时，语法分析器停止运行，并宣称成功完成了语法分析)为止。</p>
+<p><img src="https://s2.ax1x.com/2019/12/21/QjJO8s.png" alt="QjJO8s.png"></p>
+<p>站内符号串 + 剩余输入 = “规范句型”</p>
+<h4 id="移入-归约分析器可采取的4种动作"><a href="#移入-归约分析器可采取的4种动作" class="headerlink" title="移入-归约分析器可采取的4种动作"></a>移入-归约分析器可采取的4种动作</h4><p><strong>移入</strong>：将下一个输入符号移到栈的顶端<br><strong>归约</strong>：被归约的符号串的右端必然处于栈顶。语法分析器在栈中确定这个串的左端，并决定用哪个非终结符来替换这个串<br><strong>接收</strong>：宣布语法分析过程成功完成<br><strong>报错</strong>：发现一个语法错误，并调用错误恢复子例程</p>
+<h3 id="算符优先分析"><a href="#算符优先分析" class="headerlink" title="算符优先分析"></a>算符优先分析</h3><p>一个文法，如果它的任一产生式的右部都不含<strong>两个相继（并列）的非终结符</strong>，则我们称这个文法为算符文法。</p>
+<p>我们用下面方法表示任何两个可能相继出现的终结符a和b（它们之间可能插有一个非终结符）的优先关系。关系有三种：</p>
+<p><img src="https://s2.ax1x.com/2019/12/21/Qjq5Qg.png" alt="Qjq5Qg.png"></p>
+<h4 id="算符优先文法及优先构造表"><a href="#算符优先文法及优先构造表" class="headerlink" title="算符优先文法及优先构造表"></a>算符优先文法及优先构造表</h4><p>假定G是一个不含 $\varepsilon -$ 产生式的算符文法。对于任何一对终结符a、b，我们说：</p>
+<p><img src="https://s2.ax1x.com/2019/12/21/QjOlDJ.png" alt="QjOlDJ.png"></p>
+<h5 id="FIRSTVT和LASTVT的构造"><a href="#FIRSTVT和LASTVT的构造" class="headerlink" title="FIRSTVT和LASTVT的构造"></a>FIRSTVT和LASTVT的构造</h5><p><img src="https://s2.ax1x.com/2019/12/21/Qv3EZD.png" alt="Qv3EZD.png"></p>
+<p>如果产生式左部的第一个是终结符，那么产生式右部字符的FIRSTVT就是这个终结符；如果产生式左部第一个字符是非终结符，那么右部字符的FIRSTVT就是这个非终结符的FIRSTVT再加上第一个终结符。</p>
+<p><img src="https://s2.ax1x.com/2019/12/21/Qv3Vde.png" alt="Qv3Vde.png"></p>
+<p>如果产生式左部的最后一个是终结符，那么产生式右部字符的LASTVT就是这个终结符；如果产生式左部最后一个字符是非终结符，那么右部字符的LASTVT就是这个非终结符的LASTVT再加上最后一个终结符。</p>
+<h3 id="LR分析法"><a href="#LR分析法" class="headerlink" title="LR分析法"></a>LR分析法</h3><p>LR文法是最大的、可以构造出相应移入-归约语法分析器的文法类</p>
+<p>L: 对输入进行从左到右的扫描</p>
+<p>R: 反向构造出一个最右推导序列</p>
+<p>LR(k)分析: 需要向前查看k个输入符号的LR分析，当省略k时，表示k = 1。</p>
+<p>自底向上的关键问题是什么？——如何正确的识别句柄</p>
+<p>句柄是逐步形成的，用状态表示句柄识别的进展程度。</p>
+<p><img src="https://s2.ax1x.com/2019/12/21/QvIV00.png" alt="QvIV00.png"></p>
+<p>LR方法的<strong>基本思想</strong>是，在规范归约过程中，一方面记住已移进和归约出的整个符号串，即记住“历史”，另一方面根据所用的产生式推测未来可能碰到的输入符号，即对未来进行“展望”</p>
+<p>LR分析器的核心是一张<strong>分析表</strong>。这张表包括两部分，一是“动作”表，另一是“状态转换”表。它们都是二维数组。ACTION[s, a]规定了状态s面临输入符号a时应该采取什么动作。GOTO[s,X]规定了状态s面对文法符号X(终结符或非终结符)时下一状态是什么。显然。GOTO[s, X]定义了一个以文法符号为字母表的DFA。</p>
+<hr>
 <h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="第一章-引论"><a href="#第一章-引论" class="headerlink" title="第一章 引论"></a>第一章 引论</h3><p>1、宿主机、目标机概念，何谓编译程序？编译程序的输入输出是什么？</p>
 <p>2、编译程序的“前端”、“后端”主要由哪些部分组成？它们与目标机器有何关系？</p>
 <p>3、编译程序各个阶段的输入输出、所依循的规则及描述该规则的工具。<strong>结合图1.1</strong>。</p>
@@ -992,7 +1039,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绪论"><span class="nav-number">1.</span> <span class="nav-text">绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是编译"><span class="nav-number">1.1.</span> <span class="nav-text">什么是编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译程序的结构"><span class="nav-number">1.2.</span> <span class="nav-text">编译程序的结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级语言及其语法描述"><span class="nav-number">2.</span> <span class="nav-text">高级语言及其语法描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下文无关文法"><span class="nav-number">2.2.</span> <span class="nav-text">上下文无关文法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法分析树与二义性"><span class="nav-number">2.3.</span> <span class="nav-text">语法分析树与二义性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词法分析"><span class="nav-number">3.</span> <span class="nav-text">词法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念-1"><span class="nav-number">3.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态转换图"><span class="nav-number">3.2.</span> <span class="nav-text">状态转换图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正规-则-表达式与有限自动机"><span class="nav-number">3.3.</span> <span class="nav-text">正规(则)表达式与有限自动机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正规-则-表达式的定义"><span class="nav-number">3.3.1.</span> <span class="nav-text">正规(则)表达式的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确定有限自动机-DFA"><span class="nav-number">3.3.2.</span> <span class="nav-text">确定有限自动机(DFA)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非确定有限自动机-NFA"><span class="nav-number">3.3.3.</span> <span class="nav-text">非确定有限自动机(NFA)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从正则表达式到有限自动机"><span class="nav-number">3.3.4.</span> <span class="nav-text">从正则表达式到有限自动机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NFA转化成DFA"><span class="nav-number">3.3.5.</span> <span class="nav-text">NFA转化成DFA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确定有限自动机的简化"><span class="nav-number">3.3.6.</span> <span class="nav-text">确定有限自动机的简化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法分析——自上而下分析"><span class="nav-number">4.</span> <span class="nav-text">语法分析——自上而下分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自顶向下分析"><span class="nav-number">4.1.</span> <span class="nav-text">自顶向下分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LL-1-分析法"><span class="nav-number">4.2.</span> <span class="nav-text">LL(1)分析法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#消除左递归"><span class="nav-number">4.2.1.</span> <span class="nav-text">消除左递归</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#消除直接左递归"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">消除直接左递归</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#消除间接左递归"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">消除间接左递归</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#消除回溯、提左因子"><span class="nav-number">4.2.2.</span> <span class="nav-text">消除回溯、提左因子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FIRST集合FOLLOW集的计算"><span class="nav-number">4.2.3.</span> <span class="nav-text">FIRST集合FOLLOW集的计算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#计算X的FIRST-X-规则"><span class="nav-number">4.2.3.1.</span> <span class="nav-text">计算X的FIRST(X)规则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#计算串-X-1-X-2-X-n-的FIRST集合"><span class="nav-number">4.2.3.2.</span> <span class="nav-text">计算串 X_1 X_2 ... X_n 的FIRST集合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#计算非终结符A的FOLLOW-A"><span class="nav-number">4.2.3.3.</span> <span class="nav-text">计算非终结符A的FOLLOW(A)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#计算SELECT集"><span class="nav-number">4.2.3.4.</span> <span class="nav-text">计算SELECT集</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非递归的预测分析表"><span class="nav-number">4.2.4.</span> <span class="nav-text">非递归的预测分析表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法分析——自下而上分析"><span class="nav-number">5.</span> <span class="nav-text">语法分析——自下而上分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">6.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一章-引论"><span class="nav-number">6.1.</span> <span class="nav-text">第一章 引论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级语言及其语法描述-1"><span class="nav-number">6.2.</span> <span class="nav-text">高级语言及其语法描述</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#绪论"><span class="nav-number">1.</span> <span class="nav-text">绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是编译"><span class="nav-number">1.1.</span> <span class="nav-text">什么是编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译程序的结构"><span class="nav-number">1.2.</span> <span class="nav-text">编译程序的结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级语言及其语法描述"><span class="nav-number">2.</span> <span class="nav-text">高级语言及其语法描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下文无关文法"><span class="nav-number">2.2.</span> <span class="nav-text">上下文无关文法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法分析树与二义性"><span class="nav-number">2.3.</span> <span class="nav-text">语法分析树与二义性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词法分析"><span class="nav-number">3.</span> <span class="nav-text">词法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念-1"><span class="nav-number">3.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态转换图"><span class="nav-number">3.2.</span> <span class="nav-text">状态转换图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正规-则-表达式与有限自动机"><span class="nav-number">3.3.</span> <span class="nav-text">正规(则)表达式与有限自动机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正规-则-表达式的定义"><span class="nav-number">3.3.1.</span> <span class="nav-text">正规(则)表达式的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确定有限自动机-DFA"><span class="nav-number">3.3.2.</span> <span class="nav-text">确定有限自动机(DFA)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非确定有限自动机-NFA"><span class="nav-number">3.3.3.</span> <span class="nav-text">非确定有限自动机(NFA)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从正则表达式到有限自动机"><span class="nav-number">3.3.4.</span> <span class="nav-text">从正则表达式到有限自动机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NFA转化成DFA"><span class="nav-number">3.3.5.</span> <span class="nav-text">NFA转化成DFA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确定有限自动机的简化"><span class="nav-number">3.3.6.</span> <span class="nav-text">确定有限自动机的简化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法分析——自上而下分析"><span class="nav-number">4.</span> <span class="nav-text">语法分析——自上而下分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自顶向下分析"><span class="nav-number">4.1.</span> <span class="nav-text">自顶向下分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LL-1-分析法"><span class="nav-number">4.2.</span> <span class="nav-text">LL(1)分析法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#消除左递归"><span class="nav-number">4.2.1.</span> <span class="nav-text">消除左递归</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#消除直接左递归"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">消除直接左递归</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#消除间接左递归"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">消除间接左递归</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#消除回溯、提左因子"><span class="nav-number">4.2.2.</span> <span class="nav-text">消除回溯、提左因子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FIRST集合FOLLOW集的计算"><span class="nav-number">4.2.3.</span> <span class="nav-text">FIRST集合FOLLOW集的计算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#计算X的FIRST-X-规则"><span class="nav-number">4.2.3.1.</span> <span class="nav-text">计算X的FIRST(X)规则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#计算串-X-1-X-2-X-n-的FIRST集合"><span class="nav-number">4.2.3.2.</span> <span class="nav-text">计算串 X_1 X_2 ... X_n 的FIRST集合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#计算非终结符A的FOLLOW-A"><span class="nav-number">4.2.3.3.</span> <span class="nav-text">计算非终结符A的FOLLOW(A)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#计算SELECT集"><span class="nav-number">4.2.3.4.</span> <span class="nav-text">计算SELECT集</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非递归的预测分析表"><span class="nav-number">4.2.4.</span> <span class="nav-text">非递归的预测分析表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法分析——自下而上分析"><span class="nav-number">5.</span> <span class="nav-text">语法分析——自下而上分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#移入归约分析的工作过程"><span class="nav-number">5.1.</span> <span class="nav-text">移入归约分析的工作过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#移入-归约分析器可采取的4种动作"><span class="nav-number">5.1.1.</span> <span class="nav-text">移入-归约分析器可采取的4种动作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算符优先分析"><span class="nav-number">5.2.</span> <span class="nav-text">算符优先分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算符优先文法及优先构造表"><span class="nav-number">5.2.1.</span> <span class="nav-text">算符优先文法及优先构造表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#FIRSTVT和LASTVT的构造"><span class="nav-number">5.2.1.1.</span> <span class="nav-text">FIRSTVT和LASTVT的构造</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LR分析法"><span class="nav-number">5.3.</span> <span class="nav-text">LR分析法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">6.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一章-引论"><span class="nav-number">6.1.</span> <span class="nav-text">第一章 引论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级语言及其语法描述-1"><span class="nav-number">6.2.</span> <span class="nav-text">高级语言及其语法描述</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1033,7 +1080,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18k</span>
+    <span title="Site words total count">19.1k</span>
   
 
 
@@ -1056,7 +1103,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共18k字</span>
+  <span class="post-count">博客全站共19.1k字</span>
 </div>
         
 
