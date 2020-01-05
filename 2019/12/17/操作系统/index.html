@@ -86,15 +86,23 @@
 
 
 
+<meta name="description" content="操作系统引论操纵系统的目标和作用操作系统的目标方便性：方便用户，可以将高级语言翻译成机器代码，通过os提供的命令来操纵计算机 有效性：提高资源利用率、提高系统吞吐量 可扩充性：从无结构发展为模块化结构再发展为层次化结构，近年来广泛采取微内核结构 开放性：遵循世界标准规范，可以彼此兼容，方便地实现互连。 操作系统的作用OS作为用户与计算机硬件系统之间的接口OS处于用户与计算机硬件系统之间，用户通过O">
 <meta name="keywords" content="2019期末复习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统">
 <meta property="og:url" content="https://gzfeather.com/2019/12/17/操作系统/index.html">
 <meta property="og:site_name" content="Feather">
+<meta property="og:description" content="操作系统引论操纵系统的目标和作用操作系统的目标方便性：方便用户，可以将高级语言翻译成机器代码，通过os提供的命令来操纵计算机 有效性：提高资源利用率、提高系统吞吐量 可扩充性：从无结构发展为模块化结构再发展为层次化结构，近年来广泛采取微内核结构 开放性：遵循世界标准规范，可以彼此兼容，方便地实现互连。 操作系统的作用OS作为用户与计算机硬件系统之间的接口OS处于用户与计算机硬件系统之间，用户通过O">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-17T05:30:03.522Z">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/01/lGkMa8.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/01/lGnhnJ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/01/lGuSAI.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/01/02/lYu6a9.png">
+<meta property="og:updated_time" content="2020-01-05T08:02:40.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统">
+<meta name="twitter:description" content="操作系统引论操纵系统的目标和作用操作系统的目标方便性：方便用户，可以将高级语言翻译成机器代码，通过os提供的命令来操纵计算机 有效性：提高资源利用率、提高系统吞吐量 可扩充性：从无结构发展为模块化结构再发展为层次化结构，近年来广泛采取微内核结构 开放性：遵循世界标准规范，可以彼此兼容，方便地实现互连。 操作系统的作用OS作为用户与计算机硬件系统之间的接口OS处于用户与计算机硬件系统之间，用户通过O">
+<meta name="twitter:image" content="https://s2.ax1x.com/2020/01/01/lGkMa8.png">
 
 
 
@@ -350,7 +358,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  2.6k
                 </span>
               
 
@@ -366,7 +374,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  9
                 </span>
               
             </div>
@@ -387,7 +395,89 @@
       
 
       
-        
+        <h2 id="操作系统引论"><a href="#操作系统引论" class="headerlink" title="操作系统引论"></a>操作系统引论</h2><h3 id="操纵系统的目标和作用"><a href="#操纵系统的目标和作用" class="headerlink" title="操纵系统的目标和作用"></a>操纵系统的目标和作用</h3><h4 id="操作系统的目标"><a href="#操作系统的目标" class="headerlink" title="操作系统的目标"></a>操作系统的目标</h4><p><strong>方便性</strong>：方便用户，可以将高级语言翻译成机器代码，通过os提供的命令来操纵计算机</p>
+<p><strong>有效性</strong>：提高资源利用率、提高系统吞吐量</p>
+<p><strong>可扩充性</strong>：从无结构发展为模块化结构再发展为层次化结构，近年来广泛采取微内核结构</p>
+<p><strong>开放性</strong>：遵循世界标准规范，可以彼此兼容，方便地实现互连。</p>
+<h4 id="操作系统的作用"><a href="#操作系统的作用" class="headerlink" title="操作系统的作用"></a>操作系统的作用</h4><h5 id="OS作为用户与计算机硬件系统之间的接口"><a href="#OS作为用户与计算机硬件系统之间的接口" class="headerlink" title="OS作为用户与计算机硬件系统之间的接口"></a>OS作为用户与计算机硬件系统之间的接口</h5><p>OS处于用户与计算机硬件系统之间，用户通过OS来使用计算机系统。用户可以通过三种方式使用计算机，即通过命令方式、系统调用和图标——窗口方式来实现与操作系统的通信，并取得它的服务。</p>
+<p><img src="https://s2.ax1x.com/2020/01/01/lGkMa8.png" alt="lGkMa8.png"></p>
+<h5 id="OS作为计算机系统资源的管理者"><a href="#OS作为计算机系统资源的管理者" class="headerlink" title="OS作为计算机系统资源的管理者"></a>OS作为计算机系统资源的管理者</h5><p>计算机系统中资源可分为四类：处理机、存储器、I/O设备以及文件（数据和程序），处理机管理用于分配和控制处理机；存储器管理主要负责内存的分配与回收；I/O设备管理负责I/O设备的分配(回收)与操纵；文件管理用于实现对文件的存取、共享和保护。</p>
+<h5 id="OS实现了对计算机资源的抽象"><a href="#OS实现了对计算机资源的抽象" class="headerlink" title="OS实现了对计算机资源的抽象"></a>OS实现了对计算机资源的抽象</h5><h4 id="推动操作系统发展的主要动力"><a href="#推动操作系统发展的主要动力" class="headerlink" title="推动操作系统发展的主要动力"></a>推动操作系统发展的主要动力</h4><p>不断提高计算机资源利用率</p>
+<p>方便用户</p>
+<p>器件的不断更新换代</p>
+<p>计算机体系结构的不断发展</p>
+<p>不断提出新的应用需求</p>
+<h3 id="操作系统的发展过程"><a href="#操作系统的发展过程" class="headerlink" title="操作系统的发展过程"></a>操作系统的发展过程</h3><h4 id="未配置操作系统的计算机系统"><a href="#未配置操作系统的计算机系统" class="headerlink" title="未配置操作系统的计算机系统"></a>未配置操作系统的计算机系统</h4><h5 id="人工操作方式"><a href="#人工操作方式" class="headerlink" title="人工操作方式"></a>人工操作方式</h5><p>缺点：(1) 用户独占全机，一台计算机的全部资源由上机用户独占。</p>
+<p>(2) CPU等待人工操作。当用户进行装带、卸带等人工操作时，CPU和内存是空闲的。</p>
+<h5 id="脱机输入-输出-Off-Line-I-O-方式"><a href="#脱机输入-输出-Off-Line-I-O-方式" class="headerlink" title="脱机输入/输出(Off-Line I/O)方式"></a>脱机输入/输出(Off-Line I/O)方式</h5><p>优点：减少了CPU的空闲时间；提高了I/O速度。</p>
+<h4 id="单道批处理系统-Simple-Batch-Processing-System-SBPS"><a href="#单道批处理系统-Simple-Batch-Processing-System-SBPS" class="headerlink" title="单道批处理系统(Simple Batch Processing System SBPS)"></a>单道批处理系统(Simple Batch Processing System SBPS)</h4><h5 id="处理过程"><a href="#处理过程" class="headerlink" title="处理过程"></a>处理过程</h5><p>首先由监督程序将磁盘上的第一个作业装入内存，并把运行控制权交给该作业；当改作业处理完成时，又把控制权交还给监督程序，再由监督程序把磁带上的第二个作业调入内存。计算机系统就这样自动地一个接着一个作业地进行处理，直至磁带上的所有作业全部完成，便形成了早期的批处理系统。 </p>
+<p><img src="https://s2.ax1x.com/2020/01/01/lGnhnJ.png" alt="lGnhnJ.png"></p>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><p>最主要的缺点就是系统中的资源得不到充分的利用。</p>
+<p><img src="https://s2.ax1x.com/2020/01/01/lGuSAI.png" alt="lGuSAI.png"></p>
+<h4 id="多道批处理系统"><a href="#多道批处理系统" class="headerlink" title="多道批处理系统"></a>多道批处理系统</h4><h5 id="多道程序设计的基本概念"><a href="#多道程序设计的基本概念" class="headerlink" title="多道程序设计的基本概念"></a>多道程序设计的基本概念</h5><p>在该系统中， 用户所提交的作业先存放在外存上， 并排成一个队列， 称为 “后备队列”。然后由作业调度程序按一定的算法， 从后备队列中选择若干个作业调入内存，使它们共享CPU和系统中的各种资源。由于同时在内存中装有若干道程序，这样便可以在运行程序A时，利用其因I/O操作而暂停执行时的CPU空档时间， 再调度另一道程序B运行，同样可以利用程序B在I/O操作时的CPU空档时间，再调度程序C运行， 使多道程序交替地运行， 这样便可以保持CPU处于忙碌状态。</p>
+<h5 id="多道批处理系统的优缺点"><a href="#多道批处理系统的优缺点" class="headerlink" title="多道批处理系统的优缺点"></a>多道批处理系统的优缺点</h5><h6 id="资源利用率高"><a href="#资源利用率高" class="headerlink" title="资源利用率高"></a>资源利用率高</h6><p>多道程序交替运行，CPU处于忙碌状态，在内存中装入多道程序可以提高内存利用率，还可以提高I/O设备利用率。</p>
+<h6 id="系统吞吐量大"><a href="#系统吞吐量大" class="headerlink" title="系统吞吐量大"></a>系统吞吐量大</h6><p>(1) CPU和其他资源保持忙碌状态；(2) 仅当作业完成时或运行不下去时才进行切换，系统开销小。</p>
+<h6 id="平均周转时间长"><a href="#平均周转时间长" class="headerlink" title="平均周转时间长"></a>平均周转时间长</h6><p>作业要依次排队进行处理；因而作业的周转时间比较长。</p>
+<h6 id="无交互能力"><a href="#无交互能力" class="headerlink" title="无交互能力"></a>无交互能力</h6><p>一旦作业提交给系统后，用户都不能与作业进行交互，修改和调试程序不方便。</p>
+<h4 id="分时系统"><a href="#分时系统" class="headerlink" title="分时系统"></a>分时系统</h4><p>实现中的关键问题：及时接收、及时处理</p>
+<p>及时处理：1.作业直接进入内存 2.采用轮转运行方式，引入时间片的概念。</p>
+<p>分时系统的特征：多路性、独立性、及时性、交互性。</p>
+<h4 id="实时系统"><a href="#实时系统" class="headerlink" title="实时系统"></a>实时系统</h4><p>类型：工业控制系统、信息查询系统、多媒体系统、嵌入式系统。</p>
+<p>实时任务类型：周期性实时任务和非周期性实时任务、硬实时任务和软实时任务</p>
+<h4 id="微操作系统"><a href="#微操作系统" class="headerlink" title="微操作系统"></a>微操作系统</h4><p>单用户单任务操作系统、单用户多任务操作系统、多用户多任务操作系统</p>
+<h3 id="操作系统的基本特性"><a href="#操作系统的基本特性" class="headerlink" title="操作系统的基本特性"></a>操作系统的基本特性</h3><h4 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h4><ol>
+<li>并行与并发 并行性是指2个或多个时间在同一时间发生，而并发性是指2个或多个时间在同一时间间隔内发生。</li>
+<li>引入进程 所谓进程，是指在系统中能独立运行并作为资源分配的基本单位，由一组机器指令、数据和堆栈组成的，是一个能独立运行的活动实体。多个进程之间可以并发执行和交换信息。</li>
+</ol>
+<h4 id="共享"><a href="#共享" class="headerlink" title="共享"></a>共享</h4><p>OS环境下的资源共享称为资源复用，是指系统中的资源可供内存中多个并发执行的进程共同使用。</p>
+<p>互斥共享方式</p>
+<p>当进程A要访问某资源时，必须先提出请求。若此时改资源空闲，系统便可将之分配给请求进程A使用。此后如果有其他进程也要访问该资源，只要A未使用完成就必须等待。仅当A进程访问完并释放系统资源之后，才允许另一个进程对该资源进行访问。</p>
+<p>同时访问方式</p>
+<p>允许一段时间内由多个进程“同时”对它们进行访问。在微观上，这些进程对该资源的访问是交替进行的。</p>
+<h4 id="虚拟"><a href="#虚拟" class="headerlink" title="虚拟"></a>虚拟</h4><p>在OS中，把通过某种技术将一个物理实体变为若干个逻辑上的对应物的功能称为“虚拟”</p>
+<h5 id="时分复用技术"><a href="#时分复用技术" class="headerlink" title="时分复用技术"></a>时分复用技术</h5><h6 id="虚拟处理机技术"><a href="#虚拟处理机技术" class="headerlink" title="虚拟处理机技术"></a>虚拟处理机技术</h6><p>利用多道程序设计技术，为每一个程序建立至少一个进程，让多道程序并发执行。</p>
+<h6 id="虚拟设备技术"><a href="#虚拟设备技术" class="headerlink" title="虚拟设备技术"></a>虚拟设备技术</h6><p>利用虚拟设备技术，通过分时复用的方法，讲一台物理I/O设备虚拟为多态逻辑上的I/O设备，并允许每个用户占用一台逻辑上的I/O设备。</p>
+<h5 id="空分复用技术"><a href="#空分复用技术" class="headerlink" title="空分复用技术"></a>空分复用技术</h5><h4 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h4><h3 id="操作系统的主要功能"><a href="#操作系统的主要功能" class="headerlink" title="操作系统的主要功能"></a>操作系统的主要功能</h3><h4 id="处理机管理功能"><a href="#处理机管理功能" class="headerlink" title="处理机管理功能"></a>处理机管理功能</h4><p>进程控制</p>
+<p>进程同步</p>
+<p>进程通信</p>
+<p>调度</p>
+<h4 id="存储器管理功能"><a href="#存储器管理功能" class="headerlink" title="存储器管理功能"></a>存储器管理功能</h4><p>内存分配</p>
+<p>内存保护</p>
+<p>地址映射</p>
+<p>内存扩充</p>
+<h4 id="设备管理功能"><a href="#设备管理功能" class="headerlink" title="设备管理功能"></a>设备管理功能</h4><p>缓冲管理</p>
+<p>设备分配</p>
+<p>设备处理</p>
+<h4 id="文件管理功能"><a href="#文件管理功能" class="headerlink" title="文件管理功能"></a>文件管理功能</h4><p>文件存储空间的管理</p>
+<p>目录管理</p>
+<p>文件的读/写管理和保护</p>
+<h2 id="进程的描述与控制"><a href="#进程的描述与控制" class="headerlink" title="进程的描述与控制"></a>进程的描述与控制</h2><p>前趋图是指一个有向无循环图，可记为DAG，用于描述进程之间执行的先后顺序。</p>
+<p>程序顺序执行的特征：顺序性、封闭性、可再现性</p>
+<p>程序并发执行的特征：间断性、失去封闭性、不可再现性</p>
+<p>进程的特征：动态性、并发性、独立性、异步性</p>
+<p>进程的基本状态及转换</p>
+<p>创建状态、活动阻塞、活动就绪、静止阻塞，静止就绪、执行状态、终止</p>
+<p><img src="https://s2.ax1x.com/2020/01/02/lYu6a9.png" alt="lYu6a9.png"></p>
+<h3 id="进程控制块PCB的作用"><a href="#进程控制块PCB的作用" class="headerlink" title="进程控制块PCB的作用"></a>进程控制块PCB的作用</h3><p>作为独立运行基本单位的标志</p>
+<p>能实现间断性运行方式</p>
+<p>提供进程管理所需要的信息</p>
+<p>提供进程调度所需要的信息</p>
+<p>实现与其他进程的同步通信</p>
+<h3 id="进程控制块中的信息"><a href="#进程控制块中的信息" class="headerlink" title="进程控制块中的信息"></a>进程控制块中的信息</h3><p>进程标识符：外部标识符、内部标识符</p>
+<p>处理机状态：处理机状态信息也称为处理机的上下文，主要是由处理机的各种寄存器中的内容组成的。寄存器包括：1. 通用寄存器 2. 指令计数器 3. 程序状态字PSW 4. 用户栈指针</p>
+<p>进程调度信息：这些信息包括 1. 进程状态  2. 进程优先级 3. 进程调度所需要的其他信息 4. 事件</p>
+<p>进程控制信息：1.程序和数据的地址 2. 进程同步和通信机制 3. 资源清单 4. 链接指针</p>
+<p>进程控制块的组织方式：线性方式、链接方式、索引方式</p>
+<p>引起进程创建的事件: 用户登录、作业调度、提供服务、应用请求</p>
+<h3 id="进程的创建"><a href="#进程的创建" class="headerlink" title="进程的创建"></a>进程的创建</h3><p>申请空白PCB，为新进程申请获得唯一的数字标识符，并从PCB集合中索取一个空白PCB</p>
+<p>为新进程分配其运行所需的资源，包括各种物理和逻辑资源</p>
+<p>初始化进程控制块PCB：①初始化标识信息，将系统分配的标识符和父进程标识符填入新PCB中；②初始化处理机状态信息，使程序计数器指向程序的入口地址，使栈指针指向栈顶；③初始化处理机控制信息，将进程的状态设置为就绪状态或静止就绪状态，对于优先级，通常是将它设置为最低优先级，除非用户以显式方式提出高优先级要求。</p>
+<p>如果进程就绪队列能够接纳新进程，便将新进程插入就绪队列。</p>
+<h3 id="进程的终止"><a href="#进程的终止" class="headerlink" title="进程的终止"></a>进程的终止</h3><h4 id="引起进程终止的事件"><a href="#引起进程终止的事件" class="headerlink" title="引起进程终止的事件"></a>引起进程终止的事件</h4><p>①正常结束，表示进程的任务已经完成，准备退出运行</p>
+<p>②异常结束，是指进程在运行时发生了某种异常事件，使程序无法继续运行</p>
+<p>③外界干预，是指进程应外界的请求终止运行</p>
+<h3 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h3><p>多个相关进程在执行次序上进行协调，使并发执行的诸进程之间能够按照一定的规则共享系统资源，并很好的相互合作，从而使程序的执行具有可再现性。</p>
+
       
     </div>
     
@@ -477,8 +567,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -579,6 +678,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统引论"><span class="nav-number">1.</span> <span class="nav-text">操作系统引论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操纵系统的目标和作用"><span class="nav-number">1.1.</span> <span class="nav-text">操纵系统的目标和作用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#操作系统的目标"><span class="nav-number">1.1.1.</span> <span class="nav-text">操作系统的目标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作系统的作用"><span class="nav-number">1.1.2.</span> <span class="nav-text">操作系统的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#OS作为用户与计算机硬件系统之间的接口"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">OS作为用户与计算机硬件系统之间的接口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#OS作为计算机系统资源的管理者"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">OS作为计算机系统资源的管理者</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#OS实现了对计算机资源的抽象"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">OS实现了对计算机资源的抽象</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推动操作系统发展的主要动力"><span class="nav-number">1.1.3.</span> <span class="nav-text">推动操作系统发展的主要动力</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统的发展过程"><span class="nav-number">1.2.</span> <span class="nav-text">操作系统的发展过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#未配置操作系统的计算机系统"><span class="nav-number">1.2.1.</span> <span class="nav-text">未配置操作系统的计算机系统</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#人工操作方式"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">人工操作方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#脱机输入-输出-Off-Line-I-O-方式"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">脱机输入/输出(Off-Line I/O)方式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单道批处理系统-Simple-Batch-Processing-System-SBPS"><span class="nav-number">1.2.2.</span> <span class="nav-text">单道批处理系统(Simple Batch Processing System SBPS)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#处理过程"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">处理过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多道批处理系统"><span class="nav-number">1.2.3.</span> <span class="nav-text">多道批处理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#多道程序设计的基本概念"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">多道程序设计的基本概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多道批处理系统的优缺点"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">多道批处理系统的优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#资源利用率高"><span class="nav-number">1.2.3.2.1.</span> <span class="nav-text">资源利用率高</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#系统吞吐量大"><span class="nav-number">1.2.3.2.2.</span> <span class="nav-text">系统吞吐量大</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#平均周转时间长"><span class="nav-number">1.2.3.2.3.</span> <span class="nav-text">平均周转时间长</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#无交互能力"><span class="nav-number">1.2.3.2.4.</span> <span class="nav-text">无交互能力</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分时系统"><span class="nav-number">1.2.4.</span> <span class="nav-text">分时系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实时系统"><span class="nav-number">1.2.5.</span> <span class="nav-text">实时系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#微操作系统"><span class="nav-number">1.2.6.</span> <span class="nav-text">微操作系统</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统的基本特性"><span class="nav-number">1.3.</span> <span class="nav-text">操作系统的基本特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#并发"><span class="nav-number">1.3.1.</span> <span class="nav-text">并发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#共享"><span class="nav-number">1.3.2.</span> <span class="nav-text">共享</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟"><span class="nav-number">1.3.3.</span> <span class="nav-text">虚拟</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#时分复用技术"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">时分复用技术</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#虚拟处理机技术"><span class="nav-number">1.3.3.1.1.</span> <span class="nav-text">虚拟处理机技术</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#虚拟设备技术"><span class="nav-number">1.3.3.1.2.</span> <span class="nav-text">虚拟设备技术</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#空分复用技术"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">空分复用技术</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步"><span class="nav-number">1.3.4.</span> <span class="nav-text">异步</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统的主要功能"><span class="nav-number">1.4.</span> <span class="nav-text">操作系统的主要功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#处理机管理功能"><span class="nav-number">1.4.1.</span> <span class="nav-text">处理机管理功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储器管理功能"><span class="nav-number">1.4.2.</span> <span class="nav-text">存储器管理功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设备管理功能"><span class="nav-number">1.4.3.</span> <span class="nav-text">设备管理功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件管理功能"><span class="nav-number">1.4.4.</span> <span class="nav-text">文件管理功能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程的描述与控制"><span class="nav-number">2.</span> <span class="nav-text">进程的描述与控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程控制块PCB的作用"><span class="nav-number">2.1.</span> <span class="nav-text">进程控制块PCB的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程控制块中的信息"><span class="nav-number">2.2.</span> <span class="nav-text">进程控制块中的信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的创建"><span class="nav-number">2.3.</span> <span class="nav-text">进程的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的终止"><span class="nav-number">2.4.</span> <span class="nav-text">进程的终止</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#引起进程终止的事件"><span class="nav-number">2.4.1.</span> <span class="nav-text">引起进程终止的事件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程同步"><span class="nav-number">2.5.</span> <span class="nav-text">进程同步</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -594,7 +709,7 @@
       <div class="footer-inner">
         <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+<div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -613,7 +728,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">22.6k</span>
+    <span title="Site words total count">25.2k</span>
   
 
 
@@ -636,7 +751,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共22.6k字</span>
+  <span class="post-count">博客全站共25.2k字</span>
 </div>
         
 
